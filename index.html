@@ -10,7 +10,7 @@
 <!-- Bootstrap -->
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Theme (includes self-hosted @font-face for Inter & Bricolage Grotesque) -->
+<!-- Theme (includes self-hosted @font-face for Poppins) -->
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -125,32 +125,6 @@
   </div>
 </section>
 
-<!-- ==================== SERVICES INTRO ==================== -->
-<section class="section" id="services-intro">
-  <div class="container-xl-custom">
-    <div class="row gy-5">
-      <div class="col-lg-5 reveal-up" data-reveal>
-        <span class="eyebrow">Featured Insight</span>
-        <h2 style="font-size:clamp(2rem,3.6vw,2.8rem)">One ecosystem.<br>Seven disciplines.</h2>
-        <p class="hero-lead" style="margin-top:18px">Technology, design and growth — engineered to put your product and brand revenue in the same direction.</p>
-        <a href="#services" class="about-link">Explore all services <span>&rarr;</span></a>
-      </div>
-      <div class="col-lg-7 reveal-up" data-reveal>
-        <ul class="svc-intro-list">
-          <li><span>Web &amp; Software Development</span><span class="arrow">&rarr;</span></li>
-          <li><span>UI/UX Design</span><span class="arrow">&rarr;</span></li>
-          <li><span>SEO &amp; Digital Marketing</span><span class="arrow">&rarr;</span></li>
-          <li><span>Data Security</span><span class="arrow">&rarr;</span></li>
-          <li><span>Product Development</span><span class="arrow">&rarr;</span></li>
-          <li><span>Video Editing</span><span class="arrow">&rarr;</span></li>
-          <li><span>Brand Building</span><span class="arrow">&rarr;</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="svc-watermark reveal-fade" data-reveal>Impact.</div>
-  </div>
-</section>
-
 <!-- ==================== STAT STRIP (company snapshot) ==================== -->
 <section class="section-tight section-dark">
   <div class="container-xl-custom">
@@ -197,7 +171,7 @@
       </div>
       <div class="col-lg-6 order-1 order-lg-2">
         <div class="about-visual reveal-up" data-reveal>
-          <img src="assets/images/silk-ribbon.jpg" alt="IMAGIC creative craft visual">
+          <img src="assets/images/glass-macro.webp" alt="IMAGIC creative craft visual">
           <div class="about-visual-badge">
             <div class="num"><span data-count-to="10">0</span>+</div>
             <div class="lbl">Years crafting digital work</div>
@@ -208,71 +182,84 @@
   </div>
 </section>
 
-<!-- ==================== INTERACTIVE SERVICES ==================== -->
-<section class="section section-dark svc-switcher" id="services">
+<!-- ==================== SERVICES ACCORDION LIST ==================== -->
+<section class="section section-tight" id="services">
   <div class="container-xl-custom">
-    <div class="row gy-5">
-      <div class="col-lg-5">
-        <div class="svc-sticky-head">
-          <span class="eyebrow">Featured Service</span>
-          <h2 style="font-size:clamp(2rem,3.6vw,2.8rem)">Build digital experiences that work.</h2>
-          <p class="hero-lead" style="color:rgba(255,248,237,.7)">From websites to mobile apps, dashboards to custom software — we craft interfaces that feel effortless and systems that perform under pressure.</p>
+    <span class="eyebrow reveal-up" data-reveal>Featured Services</span>
+    <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem);max-width:640px">Everything you need to build, grow and transform.</h2>
+
+    <ul class="svc-list reveal-up" data-reveal id="svcList">
+      <li class="svc-row active" data-panel="0">
+        <span class="idx">01</span>
+        <div class="flex-grow-1">
+          <div class="name">Web &amp; Software Development</div>
+          <div class="desc">Custom web apps and software engineered to scale with your business.</div>
         </div>
+        <span class="chevron">&rarr;</span>
+      </li>
+      <li class="svc-row" data-panel="1">
+        <span class="idx">02</span>
+        <div class="flex-grow-1">
+          <div class="name">Product Development</div>
+          <div class="desc">From validated idea to market-ready digital product, engineering and design in step.</div>
+        </div>
+        <span class="chevron">&rarr;</span>
+      </li>
+      <li class="svc-row" data-panel="2">
+        <span class="idx">03</span>
+        <div class="flex-grow-1">
+          <div class="name">UI/UX Design</div>
+          <div class="desc">Interfaces that feel effortless — research-driven, accessible and beautiful.</div>
+        </div>
+        <span class="chevron">&rarr;</span>
+      </li>
+      <li class="svc-row" data-panel="3">
+        <span class="idx">04</span>
+        <div class="flex-grow-1">
+          <div class="name">Video Editing</div>
+          <div class="desc">Cinematic edits, motion graphics and content that moves people.</div>
+        </div>
+        <span class="chevron">&rarr;</span>
+      </li>
+      <li class="svc-row" data-panel="4">
+        <span class="idx">05</span>
+        <div class="flex-grow-1">
+          <div class="name">SEO &amp; Digital Marketing</div>
+          <div class="desc">Data-driven growth — search, content, ads and analytics that compound.</div>
+        </div>
+        <span class="chevron">&rarr;</span>
+      </li>
+      <li class="svc-row" data-panel="5">
+        <span class="idx">06</span>
+        <div class="flex-grow-1">
+          <div class="name">Brand Building</div>
+          <div class="desc">Identities with meaning — strategy, visual systems and logic to it.</div>
+        </div>
+        <span class="chevron">&rarr;</span>
+      </li>
+      <li class="svc-row" data-panel="6">
+        <span class="idx">07</span>
+        <div class="flex-grow-1">
+          <div class="name">Data Security</div>
+          <div class="desc">Protection by design — audits, hardening and continuous monitoring.</div>
+        </div>
+        <span class="chevron">&rarr;</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== SERVICE SHOWCASE (updates with list selection) ==================== -->
+<section class="section section-dark svc-showcase">
+  <div class="container-xl-custom">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-5">
+        <span class="eyebrow">Featured Service</span>
+        <h2 style="font-size:clamp(2rem,3.6vw,2.8rem)" id="svcHeading">Build digital experiences that work.</h2>
+        <p class="hero-lead" style="color:rgba(255,248,237,.7)" id="svcDesc">From websites to mobile apps, dashboards to custom software — we craft interfaces that feel effortless and systems that perform under pressure.</p>
       </div>
       <div class="col-lg-7">
-        <ul class="svc-list" id="svcList">
-          <li class="svc-row active" data-panel="0">
-            <span class="idx">01</span>
-            <div class="flex-grow-1">
-              <div class="name">Web &amp; Software Development</div>
-              <div class="desc">Custom web apps and software engineered to scale with your business.</div>
-            </div>
-          </li>
-          <li class="svc-row" data-panel="1">
-            <span class="idx">02</span>
-            <div class="flex-grow-1">
-              <div class="name">Product Development</div>
-              <div class="desc">From validated idea to market-ready digital product, engineering and design in step.</div>
-            </div>
-          </li>
-          <li class="svc-row" data-panel="2">
-            <span class="idx">03</span>
-            <div class="flex-grow-1">
-              <div class="name">UI/UX Design</div>
-              <div class="desc">Interfaces that feel effortless — research-driven, accessible and beautiful.</div>
-            </div>
-          </li>
-          <li class="svc-row" data-panel="3">
-            <span class="idx">04</span>
-            <div class="flex-grow-1">
-              <div class="name">Video Editing</div>
-              <div class="desc">Cinematic edits, motion graphics and content that moves people.</div>
-            </div>
-          </li>
-          <li class="svc-row" data-panel="4">
-            <span class="idx">05</span>
-            <div class="flex-grow-1">
-              <div class="name">SEO &amp; Digital Marketing</div>
-              <div class="desc">Data-driven growth — search, content, ads and analytics that compound.</div>
-            </div>
-          </li>
-          <li class="svc-row" data-panel="5">
-            <span class="idx">06</span>
-            <div class="flex-grow-1">
-              <div class="name">Brand Building</div>
-              <div class="desc">Identities with meaning — strategy, visual systems and logic to it.</div>
-            </div>
-          </li>
-          <li class="svc-row" data-panel="6">
-            <span class="idx">07</span>
-            <div class="flex-grow-1">
-              <div class="name">Data Security</div>
-              <div class="desc">Protection by design — audits, hardening and continuous monitoring.</div>
-            </div>
-          </li>
-        </ul>
-
-        <div class="svc-panel mt-4" id="svcPanel">
+        <div class="svc-panel" id="svcPanel">
           <div class="svc-panel-img active" data-panel-img="0" style="background-image:url('assets/images/code-network.jpg')"></div>
           <div class="svc-panel-img" data-panel-img="1" style="background-image:url('assets/images/dashboard-cube.jpg')"></div>
           <div class="svc-panel-img" data-panel-img="2" style="background-image:url('assets/images/device-mockups.jpg')"></div>

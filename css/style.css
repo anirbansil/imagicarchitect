@@ -2,67 +2,39 @@
    IMAGIC — Fonts (self-hosted)
    ========================================================================== */
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../assets/vendor/fonts/inter/inter-latin-400-normal.woff2') format('woff2');
+  src: url('../assets/vendor/fonts/poppins/poppins-latin-400-normal.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('../assets/vendor/fonts/inter/inter-latin-500-normal.woff2') format('woff2');
+  src: url('../assets/vendor/fonts/poppins/poppins-latin-500-normal.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('../assets/vendor/fonts/inter/inter-latin-600-normal.woff2') format('woff2');
+  src: url('../assets/vendor/fonts/poppins/poppins-latin-600-normal.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('../assets/vendor/fonts/inter/inter-latin-700-normal.woff2') format('woff2');
+  src: url('../assets/vendor/fonts/poppins/poppins-latin-700-normal.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Bricolage Grotesque';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../assets/vendor/fonts/bricolage/bricolage-grotesque-latin-400-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Bricolage Grotesque';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/vendor/fonts/bricolage/bricolage-grotesque-latin-500-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Bricolage Grotesque';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../assets/vendor/fonts/bricolage/bricolage-grotesque-latin-600-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Bricolage Grotesque';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../assets/vendor/fonts/bricolage/bricolage-grotesque-latin-700-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Bricolage Grotesque';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url('../assets/vendor/fonts/bricolage/bricolage-grotesque-latin-800-normal.woff2') format('woff2');
+  src: url('../assets/vendor/fonts/poppins/poppins-latin-800-normal.woff2') format('woff2');
 }
 
 /* ==========================================================================
@@ -80,8 +52,8 @@
   --imagic-ink: #2B1B1E;
   --imagic-muted: #8A7568;
 
-  --font-display: 'Bricolage Grotesque', 'Segoe UI', sans-serif;
-  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-display: 'Poppins', 'Segoe UI', sans-serif;
+  --font-body: 'Poppins', 'Segoe UI', sans-serif;
 
   --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
   --container-max: 1320px;
@@ -442,35 +414,6 @@ img { max-width: 100%; display: block; }
 }
 
 /* ==========================================================================
-   Services intro band ("One ecosystem. Seven disciplines.")
-   ========================================================================== */
-.svc-intro-list { list-style: none; padding: 0; margin: 26px 0 0; }
-.svc-intro-list li {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 15px 4px;
-  border-bottom: 1px solid rgba(90,23,32,.12);
-  font-weight: 600;
-  color: var(--imagic-maroon);
-  transition: padding-left .3s var(--ease-premium), color .3s ease;
-}
-.svc-intro-list li:hover { padding-left: 10px; color: var(--imagic-maroon-light); }
-.svc-intro-list li .arrow { opacity: .5; transition: transform .3s var(--ease-premium); }
-.svc-intro-list li:hover .arrow { transform: translateX(4px); opacity: 1; }
-
-.svc-watermark {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-style: italic;
-  font-size: clamp(3.5rem, 12vw, 9rem);
-  color: rgba(90,23,32,.08);
-  line-height: 1;
-  margin-top: 40px;
-  white-space: nowrap;
-  overflow: hidden;
-  user-select: none;
-}
-
-/* ==========================================================================
    Stat strips
    ========================================================================== */
 .stat-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -515,29 +458,28 @@ img { max-width: 100%; display: block; }
 }
 
 /* ==========================================================================
-   Interactive Services (sticky switcher)
+   Services accordion list (light) + dark showcase panel
    ========================================================================== */
-.svc-switcher { position: relative; }
-.svc-sticky-head { position: sticky; top: 110px; }
-.svc-list { list-style: none; padding: 0; margin: 30px 0 0; }
+.svc-list { list-style: none; padding: 0; margin: 40px 0 0; }
 .svc-row {
-  display: flex; align-items: center; gap: 18px;
-  padding: 18px 6px;
-  border-bottom: 1px solid rgba(255,248,237,.14);
+  display: flex; align-items: center; gap: 22px;
+  padding: 22px 4px;
+  border-bottom: 1px solid rgba(90,23,32,.14);
   cursor: pointer;
   transition: padding-left .35s var(--ease-premium);
 }
-.svc-row .idx { font-family: var(--font-display); font-weight: 700; font-size: 13px; color: rgba(255,248,237,.4); min-width: 26px; }
-.svc-row .name { font-family: var(--font-display); font-weight: 700; font-size: 19px; color: rgba(255,248,237,.6); transition: color .3s ease; }
+.svc-row .idx { font-family: var(--font-display); font-weight: 700; font-size: 13px; color: var(--imagic-yellow-dim); min-width: 28px; }
+.svc-row .name { font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--imagic-muted); transition: color .3s ease; }
 .svc-row .desc {
-  font-size: 13px; color: rgba(255,248,237,.55); max-height: 0; overflow: hidden;
+  font-size: 13.5px; color: var(--imagic-muted); max-height: 0; overflow: hidden;
   transition: max-height .4s var(--ease-premium), opacity .3s ease; opacity: 0;
 }
+.svc-row .chevron { opacity: .35; transition: transform .3s var(--ease-premium), opacity .3s ease; }
 .svc-row.active { padding-left: 10px; }
-.svc-row.active .name { color: var(--imagic-yellow); }
-.svc-row.active .idx { color: var(--imagic-yellow); }
+.svc-row.active .name { color: var(--imagic-maroon); }
 .svc-row.active .desc { max-height: 60px; opacity: 1; margin-top: 4px; }
-.svc-row:hover .name { color: var(--imagic-cream); }
+.svc-row.active .chevron { opacity: 1; transform: translateX(4px); }
+.svc-row:hover .name { color: var(--imagic-maroon-light); }
 
 .svc-panel {
   border-radius: 22px;

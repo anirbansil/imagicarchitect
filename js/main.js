@@ -103,6 +103,14 @@
           onEnter: () => el.classList.add("in-view"),
         });
       });
+
+      // Self-hosted webfonts and images can reflow the page after ScrollTrigger
+      // has already measured it, leaving lower-page triggers misaligned — so
+      // recalculate once fonts/images finish loading.
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => ScrollTrigger.refresh());
+      }
+      window.addEventListener("load", () => ScrollTrigger.refresh());
     } else {
       document.querySelectorAll("[data-reveal], .hero-lead, .hero-actions, .hero-visual, .hero .eyebrow, .line-inner").forEach((el) => {
         el.style.opacity = 1;
@@ -153,15 +161,45 @@
   const svcPanelImgs = document.querySelectorAll(".svc-panel-img");
   const svcTags = document.getElementById("svcTags");
   const svcCta = document.getElementById("svcCta");
+  const svcHeading = document.getElementById("svcHeading");
+  const svcDesc = document.getElementById("svcDesc");
 
   const svcData = [
-    { tags: ["Website UI", "Mobile UI", "Dashboard", "Software"], cta: "Explore Web & Software" },
-    { tags: ["Discovery", "Prototype", "MVP", "Scale"], cta: "Explore Product Development" },
-    { tags: ["Wireframes", "UI Kit", "Prototyping", "Testing"], cta: "Explore UI/UX Design" },
-    { tags: ["Motion Graphics", "Color Grade", "Sound Design", "Edit"], cta: "Explore Video Editing" },
-    { tags: ["Technical SEO", "Content Strategy", "Paid Media"], cta: "Explore SEO & Marketing" },
-    { tags: ["Brand Strategy", "Visual Identity", "Logo & Kit"], cta: "Explore Brand Building" },
-    { tags: ["Security Audit", "Penetration Testing", "Compliance"], cta: "Explore Data Security" },
+    {
+      heading: "Build digital experiences that work.",
+      desc: "From websites to mobile apps, dashboards to custom software — we craft interfaces that feel effortless and systems that perform under pressure.",
+      tags: ["Website UI", "Mobile UI", "Dashboard", "Software"], cta: "Explore Web & Software",
+    },
+    {
+      heading: "Products people love to use.",
+      desc: "From validated idea to market-ready digital product — engineering and design moving in step, end to end.",
+      tags: ["Discovery", "Prototype", "MVP", "Scale"], cta: "Explore Product Development",
+    },
+    {
+      heading: "Interfaces that feel effortless.",
+      desc: "Research-driven, accessible design systems that make complex products simple to use.",
+      tags: ["Wireframes", "UI Kit", "Prototyping", "Testing"], cta: "Explore UI/UX Design",
+    },
+    {
+      heading: "Motion that moves people.",
+      desc: "Cinematic edits and motion graphics that turn footage into content people actually watch.",
+      tags: ["Motion Graphics", "Color Grade", "Sound Design", "Edit"], cta: "Explore Video Editing",
+    },
+    {
+      heading: "Growth you can measure.",
+      desc: "Data-driven search, content and paid strategy engineered to compound over time, not spike and fade.",
+      tags: ["Technical SEO", "Content Strategy", "Paid Media"], cta: "Explore SEO & Marketing",
+    },
+    {
+      heading: "Identity with meaning.",
+      desc: "Brand strategy and visual systems built with the logic to back up the look.",
+      tags: ["Brand Strategy", "Visual Identity", "Logo & Kit"], cta: "Explore Brand Building",
+    },
+    {
+      heading: "Protection by design.",
+      desc: "Security audits, hardening and continuous monitoring built into the architecture, not bolted on after.",
+      tags: ["Security Audit", "Penetration Testing", "Compliance"], cta: "Explore Data Security",
+    },
   ];
 
   function setActiveService(index) {
@@ -169,26 +207,25 @@
     svcPanelImgs.forEach((img) => img.classList.toggle("active", img.dataset.panelImg === String(index)));
 
     const data = svcData[index];
-    if (window.gsap) {
-      gsap.to(svcTags, { opacity: 0, duration: 0.18, onComplete: () => {
-        svcTags.innerHTML = data.tags.map((t) => `<span>${t}</span>`).join("");
-        gsap.to(svcTags, { opacity: 1, duration: 0.25 });
-      }});
-      gsap.to(svcCta, { opacity: 0, y: 6, duration: 0.18, onComplete: () => {
-        svcCta.innerHTML = data.cta + ' <span class="arrow">&rarr;</span>';
-        gsap.to(svcCta, { opacity: 1, y: 0, duration: 0.25 });
-      }});
-    } else {
+    const applyText = () => {
+      svcHeading.textContent = data.heading;
+      svcDesc.textContent = data.desc;
       svcTags.innerHTML = data.tags.map((t) => `<span>${t}</span>`).join("");
       svcCta.innerHTML = data.cta + ' <span class="arrow">&rarr;</span>';
+    };
+    if (window.gsap) {
+      const group = [svcHeading, svcDesc, svcTags, svcCta];
+      gsap.to(group, { opacity: 0, y: 6, duration: 0.18, onComplete: () => {
+        applyText();
+        gsap.fromTo(group, { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.03 });
+      }});
+    } else {
+      applyText();
     }
   }
 
   svcRows.forEach((row) => {
     row.addEventListener("click", () => setActiveService(row.dataset.panel));
-    row.addEventListener("mouseenter", () => {
-      if (window.innerWidth >= 992) setActiveService(row.dataset.panel);
-    });
   });
 
   /* ---------------------------------------------------------------------
