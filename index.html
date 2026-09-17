@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMAGIC — Technology that turns ideas into impact</title>
+<meta name="description" content="IMAGIC is a creative technology studio building digital experiences, software, and brands that turn ideas into measurable impact.">
+<link rel="icon" href="assets/images/logo-mark.svg" type="image/svg+xml">
+
+<!-- Bootstrap -->
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Theme (includes self-hosted @font-face for Inter & Bricolage Grotesque) -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="imagic-header" id="siteHeader">
+  <div class="container-xl-custom">
+    <nav class="navbar navbar-expand-lg align-items-center d-flex justify-content-between">
+      <a href="#home" class="imagic-brand">
+        <img src="assets/images/logo-mark.svg" alt="IMAGIC logo">
+        <span class="imagic-brand-text">imagic</span>
+      </a>
+
+      <div class="nav-backdrop" id="navBackdrop"></div>
+
+      <div class="imagic-nav-collapse" id="imagicNav">
+        <ul class="navbar-nav flex-column flex-lg-row align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a href="#home" class="nav-link imagic-nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link imagic-nav-link">About</a></li>
+
+          <li class="nav-item mega-menu-wrap" id="megaMenuWrap">
+            <a href="#services" class="nav-link imagic-nav-link d-flex align-items-center gap-1" id="megaMenuTrigger">
+              Services
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-menu-panel">
+                <div class="mega-menu-list">
+                  <a href="#services" class="mega-menu-item">
+                    <span class="idx">01</span>
+                    <span><span class="label d-block">Web &amp; Software Development</span><span class="desc">Custom websites, apps and systems</span></span>
+                  </a>
+                  <a href="#services" class="mega-menu-item">
+                    <span class="idx">02</span>
+                    <span><span class="label d-block">Product Development</span><span class="desc">From validated idea to market-ready product</span></span>
+                  </a>
+                  <a href="#services" class="mega-menu-item">
+                    <span class="idx">03</span>
+                    <span><span class="label d-block">UI/UX Design</span><span class="desc">Research-driven, accessible interfaces</span></span>
+                  </a>
+                  <a href="#services" class="mega-menu-item">
+                    <span class="idx">04</span>
+                    <span><span class="label d-block">Video Editing</span><span class="desc">Cinematic edits and motion that move people</span></span>
+                  </a>
+                  <a href="#services" class="mega-menu-item">
+                    <span class="idx">05</span>
+                    <span><span class="label d-block">SEO &amp; Digital Marketing</span><span class="desc">Data-driven growth and analytics</span></span>
+                  </a>
+                  <a href="#services" class="mega-menu-item">
+                    <span class="idx">06</span>
+                    <span><span class="label d-block">Brand Building</span><span class="desc">Identity with meaning and visual voice</span></span>
+                  </a>
+                  <a href="#services" class="mega-menu-item">
+                    <span class="idx">07</span>
+                    <span><span class="label d-block">Data Security</span><span class="desc">Protection by design, hardened and monitored</span></span>
+                  </a>
+                </div>
+                <div class="mega-menu-promo" style="background-image:url('assets/images/security-shield.jpg');">
+                  <div>
+                    <span class="eyebrow" style="color:var(--imagic-yellow)">One Ecosystem</span>
+                    <h4>Seven disciplines, one team.</h4>
+                    <p>Technology, design and growth engineered to move in the same direction.</p>
+                  </div>
+                  <a href="#services" class="btn-imagic btn-accent-imagic">Explore all services <span class="arrow">&rarr;</span></a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a href="#portfolio" class="nav-link imagic-nav-link">Portfolio</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link imagic-nav-link">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <a href="#contact" class="imagic-cta-btn header-desktop-actions">Let's Talk <span class="arrow">&rarr;</span></a>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle menu"><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="home">
+  <div class="container-xl-custom">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <span class="eyebrow reveal-fade" data-reveal>IT Services &middot; Digital Solutions</span>
+        <h1 class="hero-headline">
+          <span class="line-mask"><span class="line-inner" data-reveal-line>Technology that</span></span>
+          <span class="line-mask"><span class="line-inner" data-reveal-line>turns ideas into</span></span>
+          <span class="line-mask"><span class="line-inner" data-reveal-line>impact<span class="dot">.</span></span></span>
+        </h1>
+        <p class="hero-lead reveal-up" data-reveal>We create digital experiences, software, products, brands and technology solutions for modern businesses — engineered to grow with you.</p>
+        <div class="hero-actions reveal-up" data-reveal>
+          <a href="#services" class="btn-imagic btn-primary-imagic">Explore Services <span class="arrow">&rarr;</span></a>
+          <a href="#contact" class="btn-imagic btn-ghost-imagic">Start a Project <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-visual reveal-up" data-reveal>
+          <div class="hero-visual-frame">
+            <img src="assets/images/dashboard-cube.jpg" alt="IMAGIC digital product ecosystem visual">
+          </div>
+          <div class="hero-stat-badge">
+            <div class="num" data-count-to="99.98" data-decimals="2" data-suffix="%">0%</div>
+            <div class="lbl">Platform Uptime</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SERVICES INTRO ==================== -->
+<section class="section" id="services-intro">
+  <div class="container-xl-custom">
+    <div class="row gy-5">
+      <div class="col-lg-5 reveal-up" data-reveal>
+        <span class="eyebrow">Featured Insight</span>
+        <h2 style="font-size:clamp(2rem,3.6vw,2.8rem)">One ecosystem.<br>Seven disciplines.</h2>
+        <p class="hero-lead" style="margin-top:18px">Technology, design and growth — engineered to put your product and brand revenue in the same direction.</p>
+        <a href="#services" class="about-link">Explore all services <span>&rarr;</span></a>
+      </div>
+      <div class="col-lg-7 reveal-up" data-reveal>
+        <ul class="svc-intro-list">
+          <li><span>Web &amp; Software Development</span><span class="arrow">&rarr;</span></li>
+          <li><span>UI/UX Design</span><span class="arrow">&rarr;</span></li>
+          <li><span>SEO &amp; Digital Marketing</span><span class="arrow">&rarr;</span></li>
+          <li><span>Data Security</span><span class="arrow">&rarr;</span></li>
+          <li><span>Product Development</span><span class="arrow">&rarr;</span></li>
+          <li><span>Video Editing</span><span class="arrow">&rarr;</span></li>
+          <li><span>Brand Building</span><span class="arrow">&rarr;</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="svc-watermark reveal-fade" data-reveal>Impact.</div>
+  </div>
+</section>
+
+<!-- ==================== STAT STRIP (company snapshot) ==================== -->
+<section class="section-tight section-dark">
+  <div class="container-xl-custom">
+    <div class="stat-strip">
+      <div class="stat-item reveal-up" data-reveal>
+        <div class="num"><span data-count-to="10">0</span>+</div>
+        <div class="lbl">Years Experience</div>
+      </div>
+      <div class="stat-item reveal-up" data-reveal>
+        <div class="num"><span data-count-to="200">0</span>+</div>
+        <div class="lbl">Projects Delivered</div>
+      </div>
+      <div class="stat-item reveal-up" data-reveal>
+        <div class="num"><span data-count-to="50">0</span>+</div>
+        <div class="lbl">Businesses Served</div>
+      </div>
+      <div class="stat-item reveal-up" data-reveal>
+        <div class="num"><span data-count-to="30">0</span>+</div>
+        <div class="lbl">Dedicated Experts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section class="section" id="about">
+  <div class="container-xl-custom">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6 order-2 order-lg-1">
+        <span class="eyebrow reveal-up" data-reveal>About Imagic</span>
+        <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem)">Technology, creativity and strategy — together.</h2>
+        <p class="hero-lead reveal-up" data-reveal>IMAGIC is a technology and digital solutions company where engineers, designers and strategists work as one team. We don't just ship code — we build products, brands and growth engines that move businesses forward.</p>
+        <div class="about-feature-grid reveal-up" data-reveal>
+          <div class="about-feature">
+            <h4>Unified</h4>
+            <p>One team across all disciplines.</p>
+          </div>
+          <div class="about-feature">
+            <h4>Outcome-led</h4>
+            <p>Measured by your business results.</p>
+          </div>
+        </div>
+        <a href="#about" class="about-link reveal-up" data-reveal>More About Imagic <span>&rarr;</span></a>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2">
+        <div class="about-visual reveal-up" data-reveal>
+          <img src="assets/images/silk-ribbon.jpg" alt="IMAGIC creative craft visual">
+          <div class="about-visual-badge">
+            <div class="num"><span data-count-to="10">0</span>+</div>
+            <div class="lbl">Years crafting digital work</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== INTERACTIVE SERVICES ==================== -->
+<section class="section section-dark svc-switcher" id="services">
+  <div class="container-xl-custom">
+    <div class="row gy-5">
+      <div class="col-lg-5">
+        <div class="svc-sticky-head">
+          <span class="eyebrow">Featured Service</span>
+          <h2 style="font-size:clamp(2rem,3.6vw,2.8rem)">Build digital experiences that work.</h2>
+          <p class="hero-lead" style="color:rgba(255,248,237,.7)">From websites to mobile apps, dashboards to custom software — we craft interfaces that feel effortless and systems that perform under pressure.</p>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <ul class="svc-list" id="svcList">
+          <li class="svc-row active" data-panel="0">
+            <span class="idx">01</span>
+            <div class="flex-grow-1">
+              <div class="name">Web &amp; Software Development</div>
+              <div class="desc">Custom web apps and software engineered to scale with your business.</div>
+            </div>
+          </li>
+          <li class="svc-row" data-panel="1">
+            <span class="idx">02</span>
+            <div class="flex-grow-1">
+              <div class="name">Product Development</div>
+              <div class="desc">From validated idea to market-ready digital product, engineering and design in step.</div>
+            </div>
+          </li>
+          <li class="svc-row" data-panel="2">
+            <span class="idx">03</span>
+            <div class="flex-grow-1">
+              <div class="name">UI/UX Design</div>
+              <div class="desc">Interfaces that feel effortless — research-driven, accessible and beautiful.</div>
+            </div>
+          </li>
+          <li class="svc-row" data-panel="3">
+            <span class="idx">04</span>
+            <div class="flex-grow-1">
+              <div class="name">Video Editing</div>
+              <div class="desc">Cinematic edits, motion graphics and content that moves people.</div>
+            </div>
+          </li>
+          <li class="svc-row" data-panel="4">
+            <span class="idx">05</span>
+            <div class="flex-grow-1">
+              <div class="name">SEO &amp; Digital Marketing</div>
+              <div class="desc">Data-driven growth — search, content, ads and analytics that compound.</div>
+            </div>
+          </li>
+          <li class="svc-row" data-panel="5">
+            <span class="idx">06</span>
+            <div class="flex-grow-1">
+              <div class="name">Brand Building</div>
+              <div class="desc">Identities with meaning — strategy, visual systems and logic to it.</div>
+            </div>
+          </li>
+          <li class="svc-row" data-panel="6">
+            <span class="idx">07</span>
+            <div class="flex-grow-1">
+              <div class="name">Data Security</div>
+              <div class="desc">Protection by design — audits, hardening and continuous monitoring.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="svc-panel mt-4" id="svcPanel">
+          <div class="svc-panel-img active" data-panel-img="0" style="background-image:url('assets/images/code-network.jpg')"></div>
+          <div class="svc-panel-img" data-panel-img="1" style="background-image:url('assets/images/dashboard-cube.jpg')"></div>
+          <div class="svc-panel-img" data-panel-img="2" style="background-image:url('assets/images/device-mockups.jpg')"></div>
+          <div class="svc-panel-img" data-panel-img="3" style="background-image:url('assets/images/silk-ribbon.jpg')"></div>
+          <div class="svc-panel-img" data-panel-img="4" style="background-image:url('assets/images/glass-macro.webp')"></div>
+          <div class="svc-panel-img" data-panel-img="5" style="background-image:url('assets/images/silk-ribbon.jpg')"></div>
+          <div class="svc-panel-img" data-panel-img="6" style="background-image:url('assets/images/security-shield.jpg')"></div>
+
+          <div class="svc-panel-tags" id="svcTags">
+            <span>Website UI</span><span>Mobile UI</span><span>Dashboard</span><span>Software</span>
+          </div>
+          <div class="svc-panel-cta">
+            <a href="#contact" class="btn-imagic btn-accent-imagic" id="svcCta">Explore Web &amp; Software <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHY CHOOSE US ==================== -->
+<section class="section" id="why">
+  <div class="container-xl-custom">
+    <div class="row gy-5">
+      <div class="col-lg-5 reveal-up" data-reveal>
+        <span class="eyebrow">Why Imagic</span>
+        <h2 style="font-size:clamp(2rem,3.6vw,2.8rem)">More than a service provider. Your technology partner.</h2>
+      </div>
+      <div class="col-lg-7 reveal-up" data-reveal>
+        <div class="why-grid">
+          <div class="why-item">
+            <h4>Business-focused approach</h4>
+            <p>We start with your goals, not just the technology.</p>
+          </div>
+          <div class="why-item">
+            <h4>Custom solutions</h4>
+            <p>Nothing off-the-shelf. Built precisely for the context.</p>
+          </div>
+          <div class="why-item">
+            <h4>Creative + technical expertise</h4>
+            <p>Designers and engineers in one room, from day one.</p>
+          </div>
+          <div class="why-item">
+            <h4>Scalable development</h4>
+            <p>Architecture that grows without needing to be rewritten.</p>
+          </div>
+          <div class="why-item">
+            <h4>Transparent communication</h4>
+            <p>Clear timelines, honest progress, no surprises.</p>
+          </div>
+          <div class="why-item">
+            <h4>Long-term support</h4>
+            <p>We stay after launch — iteration is where results compound.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROCESS ==================== -->
+<section class="section section-tight" id="process">
+  <div class="container-xl-custom">
+    <span class="eyebrow reveal-up" data-reveal>Our Process</span>
+    <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem)">From idea to execution.</h2>
+
+    <div class="process-track">
+      <div class="process-step reveal-up" data-reveal data-process>
+        <div class="dot">01</div>
+        <h4>Discover</h4>
+        <p>We dig into your business, users and goals to find the real problem worth solving.</p>
+      </div>
+      <div class="process-step reveal-up" data-reveal data-process>
+        <div class="dot">02</div>
+        <h4>Strategy</h4>
+        <p>We define the roadmap, scope and architecture before a single line is written.</p>
+      </div>
+      <div class="process-step reveal-up" data-reveal data-process>
+        <div class="dot">03</div>
+        <h4>Design</h4>
+        <p>We shape the experience and interface, tested with real users before it builds.</p>
+      </div>
+      <div class="process-step reveal-up" data-reveal data-process>
+        <div class="dot">04</div>
+        <h4>Develop</h4>
+        <p>We build in iterations, validated weekly demos — you see progress, not promises.</p>
+      </div>
+      <div class="process-step reveal-up" data-reveal data-process>
+        <div class="dot">05</div>
+        <h4>Launch</h4>
+        <p>We ship with confidence — tested, documented and ready for real users.</p>
+      </div>
+      <div class="process-step reveal-up" data-reveal data-process>
+        <div class="dot">06</div>
+        <h4>Support</h4>
+        <p>We stay on — monitoring, iterating and improving long after launch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PORTFOLIO ==================== -->
+<section class="section" id="portfolio">
+  <div class="container-xl-custom">
+    <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 reveal-up" data-reveal>
+      <div>
+        <span class="eyebrow">Selected Work</span>
+        <h2 style="font-size:clamp(2rem,3.6vw,2.8rem)">Work that speaks for itself.</h2>
+      </div>
+      <a href="#portfolio" class="about-link">View all projects <span>&rarr;</span></a>
+    </div>
+
+    <div class="portfolio-grid reveal-up" data-reveal>
+      <a href="#portfolio" class="portfolio-card">
+        <img src="assets/images/device-mockups.jpg" alt="Lumen Health App project">
+        <div class="portfolio-info">
+          <span class="cat">Product Development &middot; UI/UX</span>
+          <h4>Lumen Health App</h4>
+          <a href="#portfolio">View Case Study &rarr;</a>
+        </div>
+      </a>
+      <a href="#portfolio" class="portfolio-card small wide">
+        <img src="assets/images/code-network.jpg" alt="Northwind Finance Platform project">
+        <div class="portfolio-info">
+          <span class="cat">Web &amp; Software Development</span>
+          <h4>Northwind Finance Platform</h4>
+          <a href="#portfolio">View Case Study &rarr;</a>
+        </div>
+      </a>
+      <a href="#portfolio" class="portfolio-card small">
+        <img src="assets/images/dashboard-cube.jpg" alt="Atlas Analytics Dashboard project">
+        <div class="portfolio-info">
+          <span class="cat">Product Development</span>
+          <h4>Atlas Analytics Dashboard</h4>
+          <a href="#portfolio">View Case Study &rarr;</a>
+        </div>
+      </a>
+      <a href="#portfolio" class="portfolio-card small">
+        <img src="assets/images/silk-ribbon.jpg" alt="Verde Identity System project">
+        <div class="portfolio-info">
+          <span class="cat">Brand Building</span>
+          <h4>Verde Identity System</h4>
+          <a href="#portfolio">View Case Study &rarr;</a>
+        </div>
+      </a>
+      <a href="#portfolio" class="portfolio-card small">
+        <img src="assets/images/glass-macro.webp" alt="Pulse Growth Campaign project">
+        <div class="portfolio-info">
+          <span class="cat">SEO &amp; Digital Marketing</span>
+          <h4>Pulse Growth Campaign</h4>
+          <a href="#portfolio">View Case Study &rarr;</a>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== RESULTS / METRICS ==================== -->
+<section class="section section-dark" id="results">
+  <div class="container-xl-custom">
+    <span class="eyebrow reveal-up" data-reveal>Results &amp; Impact</span>
+    <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem)">Built to create measurable impact.</h2>
+
+    <div class="result-strip">
+      <div class="result-item reveal-up" data-reveal>
+        <div class="num">+<span data-count-to="45">0</span>%</div>
+        <div class="lbl">Business Efficiency</div>
+        <div class="sub">Average across engagements</div>
+      </div>
+      <div class="result-item reveal-up" data-reveal>
+        <div class="num">+<span data-count-to="60">0</span>%</div>
+        <div class="lbl">Digital Engagement</div>
+        <div class="sub">For marketing clients</div>
+      </div>
+      <div class="result-item reveal-up" data-reveal>
+        <div class="num">&minus;<span data-count-to="35">0</span>%</div>
+        <div class="lbl">Manual Processes</div>
+        <div class="sub">Removed through automation</div>
+      </div>
+      <div class="result-item reveal-up" data-reveal>
+        <div class="num"><span data-count-to="2">0</span>X</div>
+        <div class="lbl">Faster Operations</div>
+        <div class="sub">After platform rebuild</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section class="section" id="testimonials">
+  <div class="container-xl-custom text-center">
+    <span class="eyebrow reveal-up" data-reveal>Client Stories</span>
+    <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem)">Trusted by teams that build to last.</h2>
+
+    <div class="testi-wrap reveal-up" data-reveal id="testiWrap">
+      <div class="testi-slide active">
+        <div class="testi-quote-mark">&ldquo;</div>
+        <p class="testi-quote">The redesign paid for itself in months. Support tickets dropped and our customers finally say the product feels effortless.</p>
+        <div class="testi-author justify-content-center">
+          <div class="testi-avatar">ER</div>
+          <div class="text-start">
+            <div class="testi-name">Elena Rossi</div>
+            <div class="testi-role">Head of Product, Atlas Reef</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-slide">
+        <div class="testi-quote-mark">&ldquo;</div>
+        <p class="testi-quote">They grew our organic traffic by sixty percent in two quarters — with a strategy we could actually sustain ourselves.</p>
+        <div class="testi-author justify-content-center">
+          <div class="testi-avatar">DP</div>
+          <div class="text-start">
+            <div class="testi-name">David Park</div>
+            <div class="testi-role">Marketing Director, Pulse Commerce</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-slide">
+        <div class="testi-quote-mark">&ldquo;</div>
+        <p class="testi-quote">IMAGIC didn't just build our platform — they understood the business behind it. The result felt like it was always meant to exist.</p>
+        <div class="testi-author justify-content-center">
+          <div class="testi-avatar">SC</div>
+          <div class="text-start">
+            <div class="testi-name">Sarah Chen</div>
+            <div class="testi-role">Chief Product Officer, Northwind Finance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-dots" id="testiDots">
+      <button class="active" data-slide="0" aria-label="Testimonial 1"></button>
+      <button data-slide="1" aria-label="Testimonial 2"></button>
+      <button data-slide="2" aria-label="Testimonial 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== INSIGHTS / BLOG ==================== -->
+<section class="section" id="insights">
+  <div class="container-xl-custom">
+    <span class="eyebrow reveal-up" data-reveal>Insights</span>
+    <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem)">Thoughts on technology and growth.</h2>
+
+    <div class="row g-4 mt-2">
+      <div class="col-lg-3 col-sm-6 reveal-up" data-reveal>
+        <div class="insight-card">
+          <span class="insight-cat">Design</span>
+          <h4>Design systems that scale with your product</h4>
+          <p>How a disciplined system turns a growing product into one clarity — not scattered patchwork.</p>
+          <a href="#insights" class="insight-read">Read article &rarr;</a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 reveal-up" data-reveal>
+        <div class="insight-card">
+          <span class="insight-cat">Technology</span>
+          <h4>The case for composable software architecture</h4>
+          <p>Why building in independent, replaceable pieces is the resilient way to grow a product.</p>
+          <a href="#insights" class="insight-read">Read article &rarr;</a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 reveal-up" data-reveal>
+        <div class="insight-card">
+          <span class="insight-cat">Marketing</span>
+          <h4>Treating SEO as a product, not a channel</h4>
+          <p>What search-driven growth demands when it becomes a compounding asset for aging content.</p>
+          <a href="#insights" class="insight-read">Read article &rarr;</a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 reveal-up" data-reveal>
+        <div class="insight-card">
+          <span class="insight-cat">Data Security</span>
+          <h4>Security by design: the cheapest fix is early</h4>
+          <p>Why baking security into the architecture costs a fraction of bolting it on after a breach.</p>
+          <a href="#insights" class="insight-read">Read article &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FINAL CTA ==================== -->
+<section class="section cta-final">
+  <div class="cta-glow"></div>
+  <div class="container-xl-custom position-relative">
+    <span class="eyebrow reveal-up" data-reveal style="justify-content:center;color:var(--imagic-yellow)">Let's Begin</span>
+    <h2 class="reveal-up" data-reveal>Have an idea?<br><span class="line-2">Let's make it real.</span></h2>
+    <p class="reveal-up" data-reveal>Tell us what you're building. We'll bring the technology, design and strategy to make it happen.</p>
+    <div class="hero-actions reveal-up" data-reveal>
+      <a href="#contact" class="btn-imagic btn-accent-imagic">Start a Project <span class="arrow">&rarr;</span></a>
+      <a href="#contact" class="btn-imagic btn-outline-imagic">Talk to Our Team <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer" id="contact">
+  <div class="container-xl-custom">
+    <div class="row gy-5">
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <img src="assets/images/logo-mark.svg" alt="IMAGIC logo" width="36" height="36">
+          <span>imagic</span>
+        </div>
+        <p class="footer-desc">Technology + Design + Digital Growth. We build software and brands that turn ideas into measurable impact.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 10v6M8 7.5v.01M12 16v-3.5c0-1.4 1-2.5 2.3-2.5S16 11.1 16 12.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+          <a href="#" aria-label="Behance"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 7h6M3 7v10h5.5c1.9 0 3-1.1 3-2.7 0-1.4-.9-2.2-2-2.5 1-.4 1.6-1.2 1.6-2.3C11.1 8 10 7 8.2 7H3zm3 4.6h2c1 0 1.6.5 1.6 1.4 0 1-.7 1.5-1.7 1.5H6v-2.9zM13 12.6c0-2.8 1.8-4.6 4.3-4.6 2.6 0 4.2 1.9 4.2 4.6v.6h-6.4c.1 1.3 1 2 2.2 2 .9 0 1.5-.3 1.9-1h2.1c-.5 1.7-2 2.7-4 2.7-2.6 0-4.3-1.7-4.3-4.3zm2.2-1h4c-.1-1.2-.9-1.9-2-1.9-1 0-1.8.7-2 1.9zM14.5 6h4v1.2h-4z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-6">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          <li><a href="#services">Web &amp; Software Development</a></li>
+          <li><a href="#services">Product Development</a></li>
+          <li><a href="#services">UI/UX Design</a></li>
+          <li><a href="#services">Video Editing</a></li>
+          <li><a href="#services">SEO &amp; Digital Marketing</a></li>
+          <li><a href="#services">Brand Building</a></li>
+          <li><a href="#services">Data Security</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-6">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4">
+        <h5>Get in Touch</h5>
+        <div class="footer-contact">
+          <a href="mailto:hello@imagic.studio">hello@imagic.studio</a>
+          <a href="tel:+14085550142">+1 (408) 555-0142</a>
+          <span>88 Mission Street, Suite 300, San Francisco, CA 94105</span>
+        </div>
+        <a href="mailto:hello@imagic.studio" class="btn-imagic btn-accent-imagic">Start a Project <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> IMAGIC. All rights reserved.</span>
+      <div class="d-flex gap-4">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Institute of Motion Art, Graphical Image &amp; Cinematography</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/gsap/gsap.min.js"></script>
+<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
