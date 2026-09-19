@@ -11,6 +11,8 @@
      Scroll progress bar + sticky header + active nav link
      --------------------------------------------------------------------- */
   const progressBar = document.getElementById("scrollProgress");
+  const siteHeader = document.getElementById("siteHeader");
+  const headerContainer = document.getElementById("headerContainer");
   const headerBar = document.getElementById("headerBar");
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = Array.from(document.querySelectorAll("main > section[id], footer[id]"));
@@ -22,7 +24,10 @@
     const progress = max > 0 ? scrollTop / max : 0;
     progressBar.style.transform = `scaleX(${progress})`;
 
-    headerBar.classList.toggle("is-scrolled", scrollTop > 24);
+    const scrolled = scrollTop > 24;
+    siteHeader.classList.toggle("is-scrolled", scrolled);
+    headerContainer.classList.toggle("is-scrolled", scrolled);
+    headerBar.classList.toggle("is-scrolled", scrolled);
 
     let current = sections[0] && sections[0].id;
     const scrollPos = scrollTop + 140;
@@ -30,7 +35,9 @@
       if (scrollPos >= sec.offsetTop) current = sec.id;
     });
     navLinks.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === "#" + current);
+      const href = link.getAttribute("href");
+      if (!href || href.charAt(0) !== "#") return; // real page links keep whatever state the page set
+      link.classList.toggle("active", href === "#" + current);
     });
   }
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -245,47 +252,76 @@
   ];
 
   const testiQuote = document.getElementById("testiQuote");
-  const testiName = document.getElementById("testiName");
-  const testiRole = document.getElementById("testiRole");
-  const testiTag = document.getElementById("testiTag");
   const testiDotsWrap = document.getElementById("testiDots");
-  let testiIndex = 0;
 
-  testimonials.forEach((_, i) => {
-    const dot = document.createElement("button");
-    dot.className = "h-1 rounded-full transition-all bg-burgundy/20";
-    dot.setAttribute("aria-label", `Go to testimonial ${i + 1}`);
-    dot.addEventListener("click", () => showTesti(i));
-    testiDotsWrap.appendChild(dot);
-  });
+  if (testiQuote && testiDotsWrap) {
+    const testiName = document.getElementById("testiName");
+    const testiRole = document.getElementById("testiRole");
+    const testiTag = document.getElementById("testiTag");
+    let testiIndex = 0;
 
-  function showTesti(index) {
-    testiIndex = (index + testimonials.length) % testimonials.length;
-    const t = testimonials[testiIndex];
-    const apply = () => {
-      testiQuote.innerHTML = `&ldquo;${t.quote}&rdquo;`;
-      testiName.textContent = t.name;
-      testiRole.textContent = t.role;
-      testiTag.innerHTML = t.tag;
-    };
-    if (window.gsap) {
-      gsap.to("#testiContent", { opacity: 0, duration: 0.2, onComplete: () => {
+    testimonials.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.className = "h-1 rounded-full transition-all bg-burgundy/20";
+      dot.setAttribute("aria-label", `Go to testimonial ${i + 1}`);
+      dot.addEventListener("click", () => showTesti(i));
+      testiDotsWrap.appendChild(dot);
+    });
+
+    function showTesti(index) {
+      testiIndex = (index + testimonials.length) % testimonials.length;
+      const t = testimonials[testiIndex];
+      const apply = () => {
+        testiQuote.innerHTML = `&ldquo;${t.quote}&rdquo;`;
+        testiName.textContent = t.name;
+        testiRole.textContent = t.role;
+        testiTag.innerHTML = t.tag;
+      };
+      if (window.gsap) {
+        gsap.to("#testiContent", { opacity: 0, duration: 0.2, onComplete: () => {
+          apply();
+          gsap.to("#testiContent", { opacity: 1, duration: 0.35 });
+        }});
+      } else {
         apply();
-        gsap.to("#testiContent", { opacity: 1, duration: 0.35 });
-      }});
-    } else {
-      apply();
+      }
+      Array.from(testiDotsWrap.children).forEach((dot, i) => {
+        dot.classList.toggle("w-10", i === testiIndex);
+        dot.classList.toggle("w-4", i !== testiIndex);
+        dot.classList.toggle("bg-imagic-yellow", i === testiIndex);
+        dot.classList.toggle("bg-burgundy/20", i !== testiIndex);
+      });
     }
-    Array.from(testiDotsWrap.children).forEach((dot, i) => {
-      dot.classList.toggle("w-10", i === testiIndex);
-      dot.classList.toggle("w-4", i !== testiIndex);
-      dot.classList.toggle("bg-imagic-yellow", i === testiIndex);
-      dot.classList.toggle("bg-burgundy/20", i !== testiIndex);
+    document.getElementById("testiPrev").addEventListener("click", () => showTesti(testiIndex - 1));
+    document.getElementById("testiNext").addEventListener("click", () => showTesti(testiIndex + 1));
+    showTesti(0);
+  }
+
+  /* ---------------------------------------------------------------------
+     Portfolio filters (portfolio.html only)
+     --------------------------------------------------------------------- */
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+  if (filterBtns.length && portfolioCards.length) {
+    const emptyMsg = document.getElementById("portfolioEmpty");
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((b) => b.classList.toggle("is-active", b === btn));
+
+        const filter = btn.dataset.filter;
+        let visibleCount = 0;
+        portfolioCards.forEach((card) => {
+          const categories = (card.dataset.categories || "").split(" ");
+          const show = filter === "all" || categories.includes(filter);
+          card.style.display = show ? "" : "none";
+          if (show) visibleCount++;
+        });
+        if (emptyMsg) emptyMsg.classList.toggle("hidden", visibleCount > 0);
+      });
     });
   }
-  document.getElementById("testiPrev").addEventListener("click", () => showTesti(testiIndex - 1));
-  document.getElementById("testiNext").addEventListener("click", () => showTesti(testiIndex + 1));
-  showTesti(0);
 
   /* ---------------------------------------------------------------------
      Smooth-scroll offset for fixed header on anchor links

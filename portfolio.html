@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — IMAGIC</title>
+<meta name="description" content="A selection of IMAGIC projects across web, software, product, design, branding, marketing and video — each one built to create measurable impact.">
+<link rel="icon" href="assets/images/logo-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/vendor/tailwind/tailwind.css">
+</head>
+<body class="min-h-screen bg-ivory font-sans">
+
+<!-- Scroll progress bar -->
+<div id="scrollProgress" class="fixed top-0 left-0 right-0 h-[2px] origin-left bg-imagic-yellow z-[60]" style="transform: scaleX(0)"></div>
+
+<!-- ==================== HEADER ==================== -->
+<header id="siteHeader" class="fixed top-0 inset-x-0 z-50 transition-all duration-500 py-4">
+  <div id="headerContainer" class="mx-auto max-w-1440 px-5 sm:px-8 transition-all duration-500">
+    <div id="headerBar" class="flex items-center justify-between rounded-2xl px-4 sm:px-6 h-16 transition-all duration-500 bg-transparent">
+      <a class="inline-flex items-center gap-2.5" aria-label="IMAGIC home" href="index.html">
+        <img src="assets/images/logo-mark.svg" alt="IMAGIC — Institute of Motion Art Graphical Image and Cinematography" class="h-9 sm:h-11 w-9 sm:w-11 object-contain">
+        <span class="font-display font-extrabold text-xl sm:text-2xl text-burgundy">imagic</span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-1">
+        <a class="nav-link px-4 py-2 text-sm font-medium transition-colors text-burgundy/70 hover:text-burgundy" href="index.html">Home</a>
+        <a class="nav-link px-4 py-2 text-sm font-medium transition-colors text-burgundy/70 hover:text-burgundy" href="index.html#about">About</a>
+
+        <div class="relative" id="megaMenuWrap">
+          <button id="megaMenuTrigger" class="group flex items-center gap-1 px-4 py-2 text-sm font-medium text-burgundy/80 hover:text-burgundy transition-colors" aria-expanded="false">
+            Services
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 transition-transform duration-300" id="megaChevron"><path d="m6 9 6 6 6-6"></path></svg>
+          </button>
+          <div id="megaMenuPanel" class="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[560px] max-w-[90vw] opacity-0 translate-y-2 pointer-events-none transition-all duration-300">
+            <div class="rounded-2xl border border-burgundy/10 bg-ivory shadow-2xl shadow-burgundy/10 p-6 grid grid-cols-2 gap-1">
+              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">01</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">Web &amp; Software Development</span><span class="block text-xs text-charcoal/50 mt-0.5">Custom sites, apps &amp; systems</span></span>
+              </a>
+              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">02</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">Product Development</span><span class="block text-xs text-charcoal/50 mt-0.5">Idea to market-ready product</span></span>
+              </a>
+              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">03</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">UI/UX Design</span><span class="block text-xs text-charcoal/50 mt-0.5">Research-driven interfaces</span></span>
+              </a>
+              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">04</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">Video Editing</span><span class="block text-xs text-charcoal/50 mt-0.5">Cinematic edits &amp; motion</span></span>
+              </a>
+              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">05</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">SEO &amp; Digital Marketing</span><span class="block text-xs text-charcoal/50 mt-0.5">Data-driven growth</span></span>
+              </a>
+              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">06</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">Brand Building</span><span class="block text-xs text-charcoal/50 mt-0.5">Identity with meaning</span></span>
+              </a>
+              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors col-span-2">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">07</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">Data Security</span><span class="block text-xs text-charcoal/50 mt-0.5">Protection by design, hardened and monitored</span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a class="px-4 py-2 text-sm font-medium transition-colors text-burgundy" href="portfolio.html" aria-current="page">Portfolio</a>
+        <a class="nav-link px-4 py-2 text-sm font-medium transition-colors text-burgundy/70 hover:text-burgundy" href="index.html#contact">Contact Us</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a class="hidden sm:inline-flex items-center gap-1.5 bg-burgundy text-ivory px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-burgundy-light transition-colors duration-300" href="index.html#contact">
+          Let's Talk
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
+        <button id="mobileMenuBtn" class="lg:hidden p-2 text-burgundy" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div id="mobileMenu" class="fixed inset-0 z-[70] lg:hidden opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="mobileMenuBackdrop" class="absolute inset-0 bg-charcoal/50"></div>
+  <div id="mobileMenuPanel" class="absolute top-0 right-0 h-full w-[85%] max-w-sm bg-ivory shadow-2xl translate-x-full transition-transform duration-400 flex flex-col px-7 pt-8 pb-10">
+    <div class="flex items-center justify-between mb-10">
+      <a class="inline-flex items-center gap-2.5" href="index.html">
+        <img src="assets/images/logo-mark.svg" alt="IMAGIC" class="h-9 w-9 object-contain">
+        <span class="font-display font-extrabold text-xl text-burgundy">imagic</span>
+      </a>
+      <button id="mobileMenuClose" class="p-2 text-burgundy" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-1 mobile-nav-links">
+      <a href="index.html" class="py-3.5 text-lg font-display font-semibold text-burgundy/80 border-b border-burgundy/10">Home</a>
+      <a href="index.html#about" class="py-3.5 text-lg font-display font-semibold text-burgundy/80 border-b border-burgundy/10">About</a>
+      <button id="mobileServicesToggle" class="flex items-center justify-between py-3.5 text-lg font-display font-semibold text-burgundy/80 border-b border-burgundy/10 w-full text-left" aria-expanded="false">
+        Services
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 transition-transform duration-300" id="mobileServicesChevron"><path d="m6 9 6 6 6-6"></path></svg>
+      </button>
+      <div id="mobileServicesList" class="hidden flex-col gap-0.5 pl-3 border-b border-burgundy/10 pb-2">
+        <a href="index.html#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">Web &amp; Software Development</a>
+        <a href="index.html#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">Product Development</a>
+        <a href="index.html#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">UI/UX Design</a>
+        <a href="index.html#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">Video Editing</a>
+        <a href="index.html#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">SEO &amp; Digital Marketing</a>
+        <a href="index.html#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">Brand Building</a>
+        <a href="index.html#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">Data Security</a>
+      </div>
+      <a href="portfolio.html" class="mobile-nav-links py-3.5 text-lg font-display font-semibold text-burgundy border-b border-burgundy/10" aria-current="page">Portfolio</a>
+      <a href="index.html#contact" class="mobile-nav-links py-3.5 text-lg font-display font-semibold text-burgundy/80 border-b border-burgundy/10">Contact Us</a>
+    </nav>
+    <a href="index.html#contact" class="mobile-nav-links mt-8 inline-flex items-center justify-center gap-1.5 bg-burgundy text-ivory px-5 py-3.5 rounded-full text-sm font-semibold">
+      Let's Talk
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+    </a>
+  </div>
+</div>
+
+<main>
+
+<!-- ==================== PORTFOLIO HERO ==================== -->
+<section class="relative pt-36 lg:pt-48 pb-16 lg:pb-24 overflow-hidden">
+  <div class="absolute top-1/3 -right-32 w-[400px] h-[400px] rounded-full bg-imagic-yellow/10 blur-[120px] pointer-events-none"></div>
+  <div class="mx-auto max-w-1440 px-5 sm:px-8 relative">
+    <div data-reveal>
+      <div class="inline-flex items-center gap-2.5 mb-6">
+        <span class="w-8 h-px bg-imagic-yellow"></span>
+        <span class="text-xs font-semibold tracking-[0.22em] uppercase text-burgundy/70">Portfolio</span>
+      </div>
+    </div>
+    <h1 class="font-display font-extrabold text-burgundy text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight max-w-4xl text-balance">
+      Work that speaks <span class="text-burgundy/35">for itself.</span>
+    </h1>
+    <div data-reveal>
+      <p class="mt-6 text-charcoal/70 text-lg leading-relaxed max-w-2xl text-pretty">A selection of projects across web, software, product, design, branding, marketing and video — each one built to create measurable impact.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FILTERS + GRID ==================== -->
+<section class="pb-24 lg:pb-32">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8">
+    <div data-reveal>
+      <div class="flex flex-wrap gap-2.5 mb-12" id="portfolioFilters">
+        <button class="filter-btn is-active px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300" data-filter="all">All</button>
+        <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300" data-filter="web">Web</button>
+        <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300" data-filter="software">Software</button>
+        <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300" data-filter="product">Product</button>
+        <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300" data-filter="ui/ux">UI/UX</button>
+        <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300" data-filter="branding">Branding</button>
+        <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300" data-filter="marketing">Marketing</button>
+        <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300" data-filter="video">Video</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 auto-rows-[280px] gap-5" id="portfolioGrid">
+
+      <div class="portfolio-card relative group rounded-3xl overflow-hidden lg:col-span-8 lg:row-span-2" data-reveal data-categories="web software">
+        <img src="assets/images/device-mockups.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Northwind Finance Platform">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/90 via-burgundy/25 to-transparent"></div>
+        <div class="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end text-ivory">
+          <span class="text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-2">Fintech &bull; Web &amp; Software Development</span>
+          <h3 class="font-display font-extrabold text-2xl lg:text-3xl leading-tight">Northwind Finance Platform</h3>
+          <p class="mt-2 text-sm text-ivory/70 max-w-md">A full-stack lending platform with automated KYC, real-time dashboards and a customer portal.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm font-semibold text-imagic-yellow">+180% faster onboarding</span>
+            <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-ivory group-hover:gap-2.5 transition-all" href="index.html#contact">View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card relative group rounded-3xl overflow-hidden lg:col-span-4" data-reveal data-categories="product">
+        <img src="assets/images/code-network.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Lumen Health App">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/90 via-burgundy/25 to-transparent"></div>
+        <div class="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end text-ivory">
+          <span class="text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-2">Healthtech &bull; Product Development</span>
+          <h3 class="font-display font-extrabold text-2xl lg:text-3xl leading-tight">Lumen Health App</h3>
+          <p class="mt-2 text-sm text-ivory/70 max-w-md">End-to-end product: telehealth MVP, iteration and scale to a six-figure user base.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm font-semibold text-imagic-yellow">120k+ active users</span>
+            <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-ivory group-hover:gap-2.5 transition-all" href="index.html#contact">View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card relative group rounded-3xl overflow-hidden lg:col-span-4" data-reveal data-categories="ui/ux">
+        <img src="assets/images/silk-ribbon.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Atlas Analytics Dashboard">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/90 via-burgundy/25 to-transparent"></div>
+        <div class="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end text-ivory">
+          <span class="text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-2">SaaS &bull; UI/UX Design</span>
+          <h3 class="font-display font-extrabold text-2xl lg:text-3xl leading-tight">Atlas Analytics Dashboard</h3>
+          <p class="mt-2 text-sm text-ivory/70 max-w-md">A complete design system and dashboard redesign for a data-heavy SaaS product.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm font-semibold text-imagic-yellow">-40% support tickets</span>
+            <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-ivory group-hover:gap-2.5 transition-all" href="index.html#contact">View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card relative group rounded-3xl overflow-hidden lg:col-span-4" data-reveal data-categories="branding">
+        <img src="assets/images/security-shield.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Verde Identity System">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/90 via-burgundy/25 to-transparent"></div>
+        <div class="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end text-ivory">
+          <span class="text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-2">Sustainability &bull; Brand Building</span>
+          <h3 class="font-display font-extrabold text-2xl lg:text-3xl leading-tight">Verde Identity System</h3>
+          <p class="mt-2 text-sm text-ivory/70 max-w-md">Brand strategy, identity and guidelines for a sustainability startup.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm font-semibold text-imagic-yellow">Launch-ready in 6 weeks</span>
+            <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-ivory group-hover:gap-2.5 transition-all" href="index.html#contact">View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card relative group rounded-3xl overflow-hidden lg:col-span-4" data-reveal data-categories="marketing">
+        <img src="assets/images/glass-macro.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Pulse Growth Campaign">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/90 via-burgundy/25 to-transparent"></div>
+        <div class="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end text-ivory">
+          <span class="text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-2">E-commerce &bull; SEO &amp; Digital Marketing</span>
+          <h3 class="font-display font-extrabold text-2xl lg:text-3xl leading-tight">Pulse Growth Campaign</h3>
+          <p class="mt-2 text-sm text-ivory/70 max-w-md">Technical SEO, content engine and paid media for an e-commerce brand.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm font-semibold text-imagic-yellow">+60% organic traffic</span>
+            <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-ivory group-hover:gap-2.5 transition-all" href="index.html#contact">View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card relative group rounded-3xl overflow-hidden lg:col-span-8 lg:row-span-2" data-reveal data-categories="video">
+        <img src="assets/images/dashboard-cube.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Orbit Brand Film">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/90 via-burgundy/25 to-transparent"></div>
+        <div class="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end text-ivory">
+          <span class="text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-2">Technology &bull; Video Editing</span>
+          <h3 class="font-display font-extrabold text-2xl lg:text-3xl leading-tight">Orbit Brand Film</h3>
+          <p class="mt-2 text-sm text-ivory/70 max-w-md">A cinematic brand film and motion graphics package for a product launch.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm font-semibold text-imagic-yellow">2.4M views</span>
+            <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-ivory group-hover:gap-2.5 transition-all" href="index.html#contact">View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card relative group rounded-3xl overflow-hidden lg:col-span-4" data-reveal data-categories="">
+        <img src="assets/images/device-mockups.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Sentinel Security Audit">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/90 via-burgundy/25 to-transparent"></div>
+        <div class="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end text-ivory">
+          <span class="text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-2">Enterprise &bull; Data Security</span>
+          <h3 class="font-display font-extrabold text-2xl lg:text-3xl leading-tight">Sentinel Security Audit</h3>
+          <p class="mt-2 text-sm text-ivory/70 max-w-md">Full security audit, hardening and continuous monitoring for an enterprise platform.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm font-semibold text-imagic-yellow">Zero criticals in 12 months</span>
+            <a class="inline-flex items-center gap-1.5 text-sm font-semibold text-ivory group-hover:gap-2.5 transition-all" href="index.html#contact">View Project
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p id="portfolioEmpty" class="hidden text-center text-charcoal/50 mt-14">No projects in this category yet — check back soon.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-charcoal text-ivory pt-20 pb-10">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-ivory/10">
+      <div class="lg:col-span-5">
+        <a class="inline-flex items-center gap-2.5" aria-label="IMAGIC home" href="index.html">
+          <img src="assets/images/logo-mark.svg" alt="IMAGIC" class="h-9 sm:h-11 w-9 sm:w-11 object-contain">
+          <span class="font-display font-extrabold text-xl sm:text-2xl text-ivory">imagic</span>
+        </a>
+        <p class="mt-6 text-ivory/60 text-sm leading-relaxed max-w-sm">Technology + Design + Digital Growth. We build software, products and brands that turn ideas into measurable impact.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full border border-ivory/15 text-ivory/70">Technology</span>
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full border border-ivory/15 text-ivory/70">Design</span>
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full border border-ivory/15 text-ivory/70">Growth</span>
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full border border-ivory/15 text-ivory/70">Security</span>
+        </div>
+      </div>
+      <div class="lg:col-span-3">
+        <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-yellow mb-5">Services</p>
+        <ul class="space-y-2.5">
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="index.html#services">Web &amp; Software Development</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="index.html#services">Product Development</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="index.html#services">UI/UX Design</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="index.html#services">Video Editing</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="index.html#services">SEO &amp; Digital Marketing</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="index.html#services">Brand Building</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="index.html#services">Data Security</a></li>
+        </ul>
+      </div>
+      <div class="lg:col-span-4">
+        <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-yellow mb-5">Get in touch</p>
+        <ul class="space-y-3 text-sm text-ivory/70">
+          <li class="flex items-center gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            <a href="mailto:hello@imagic.studio" class="hover:text-ivory transition-colors">hello@imagic.studio</a>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href="tel:+14155550142" class="hover:text-ivory transition-colors">+1 (415) 555-0142</a>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow shrink-0 mt-0.5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>88 Mission Street, Suite 1200<br>San Francisco, CA 94105</span>
+          </li>
+        </ul>
+        <a class="mt-6 inline-flex items-center gap-1.5 bg-imagic-yellow text-charcoal px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-imagic-gold transition-colors" href="mailto:hello@imagic.studio">
+          Start a Project
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
+      </div>
+    </div>
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/40">
+      <p>&copy; <span id="year"></span> IMAGIC. All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <a class="hover:text-ivory/70 transition-colors" href="index.html#about">Privacy</a>
+        <a class="hover:text-ivory/70 transition-colors" href="index.html#about">Terms</a>
+        <span>Institute of Motion Art Graphical Image &amp; Cinematography</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/vendor/gsap/gsap.min.js"></script>
+<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

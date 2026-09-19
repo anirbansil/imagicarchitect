@@ -82,6 +82,13 @@
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 10px 30px -18px rgba(33, 21, 24, 0.35);
 }
+#siteHeader.is-scrolled {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+#headerContainer.is-scrolled {
+  transform: scale(0.99);
+}
 .nav-link {
   position: relative;
 }
@@ -191,4 +198,25 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .float-card { animation: none; }
+}
+
+/* ---------------------------------------------------------------------
+   Portfolio filter pills
+   --------------------------------------------------------------------- */
+.filter-btn {
+  border: 1px solid rgba(90, 23, 32, 0.15);
+  color: rgba(90, 23, 32, 0.7);
+  background: transparent;
+}
+.filter-btn:hover {
+  border-color: rgba(90, 23, 32, 0.4);
+  color: #5a1720;
+}
+.filter-btn.is-active {
+  background: #5a1720;
+  border-color: #5a1720;
+  color: #fff8ed;
+}
+.filter-btn.is-active:hover {
+  color: #fff8ed;
 }
