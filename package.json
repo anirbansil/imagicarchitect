@@ -1,0 +1,24 @@
+{
+  "name": "imagicarchitect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i src/tailwind.css -o assets/vendor/tailwind/tailwind.css --minify",
+    "watch:css": "tailwindcss -i src/tailwind.css -o assets/vendor/tailwind/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anirbansil/imagicarchitect.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anirbansil/imagicarchitect/issues"
+  },
+  "homepage": "https://github.com/anirbansil/imagicarchitect#readme"
+}

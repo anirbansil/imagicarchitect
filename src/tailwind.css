@@ -1,0 +1,194 @@
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/poppins/poppins-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/poppins/poppins-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/poppins/poppins-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/poppins/poppins-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/poppins/poppins-latin-800-normal.woff2") format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: #ffc813;
+    color: #5a1720;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 248, 237, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .glass-dark {
+    background: rgba(33, 21, 24, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   Header
+   --------------------------------------------------------------------- */
+#headerBar.is-scrolled {
+  background: rgba(255, 248, 237, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px -18px rgba(33, 21, 24, 0.35);
+}
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 2px;
+  height: 2px;
+  background: #ffc813;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link.active::after,
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------------------------------------------------------------------
+   Mega menu
+   --------------------------------------------------------------------- */
+#megaMenuPanel.open {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+#megaMenuPanel {
+  transform: translate(-50%, 8px);
+}
+
+/* ---------------------------------------------------------------------
+   Mobile menu
+   --------------------------------------------------------------------- */
+#mobileMenu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+#mobileMenu.open #mobileMenuPanel {
+  transform: translateX(0);
+}
+
+/* ---------------------------------------------------------------------
+   Hero line reveal
+   --------------------------------------------------------------------- */
+.hero-line {
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+/* ---------------------------------------------------------------------
+   Services accordion
+   --------------------------------------------------------------------- */
+.svc-bar {
+  height: 0%;
+  transition: height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.svc-row.active .svc-bar {
+  height: 60%;
+}
+.svc-row.active .svc-num {
+  color: #5a1720;
+  transform: scale(1.1);
+}
+.svc-row .svc-desc {
+  display: none;
+}
+.svc-row.active .svc-desc {
+  display: block;
+}
+.svc-row.active .svc-title {
+  color: #5a1720 !important;
+}
+.svc-row.active .svc-arrow {
+  color: #ffc813 !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* ---------------------------------------------------------------------
+   Process timeline dots
+   --------------------------------------------------------------------- */
+.dot {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.dot.in-view {
+  background: #5a1720;
+  border-color: #5a1720;
+}
+.dot.in-view span {
+  color: #ffc813;
+}
+
+/* ---------------------------------------------------------------------
+   Floating decorative cards — gentle idle motion
+   --------------------------------------------------------------------- */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.float-card {
+  animation: gentle-float 5s ease-in-out infinite;
+}
+.float-card:nth-of-type(2) {
+  animation-delay: -2.5s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .float-card { animation: none; }
+}
