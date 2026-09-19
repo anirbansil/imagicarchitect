@@ -246,10 +246,9 @@
   }
 
   svcRows.forEach((row) => {
-    row.querySelector("a").addEventListener("click", (e) => {
-      e.preventDefault();
-      setActiveService(row.dataset.panel);
-    });
+    const link = row.querySelector("a");
+    row.addEventListener("mouseenter", () => setActiveService(row.dataset.panel));
+    link.addEventListener("focus", () => setActiveService(row.dataset.panel));
   });
 
   /* ---------------------------------------------------------------------
