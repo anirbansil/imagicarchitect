@@ -203,13 +203,13 @@
   const svcPanelLink = document.getElementById("svcPanelLink");
 
   const svcData = [
-    { num: "01", title: "Web &amp; Software Development", img: "assets/images/code-network.jpg", tags: ["Custom Web Applications", "SaaS Platform Development", "API &amp; Integrations"], linkText: "Explore Web &amp; Software Development" },
-    { num: "02", title: "Product Development", img: "assets/images/dashboard-cube.jpg", tags: ["Discovery &amp; Strategy", "MVP Development", "Scaling &amp; Iteration"], linkText: "Explore Product Development" },
-    { num: "03", title: "UI/UX Design", img: "assets/images/device-mockups.jpg", tags: ["User Research", "Interface Design", "Prototyping"], linkText: "Explore UI/UX Design" },
-    { num: "04", title: "Video Editing", img: "assets/images/silk-ribbon.jpg", tags: ["Motion Graphics", "Color Grading", "Sound Design"], linkText: "Explore Video Editing" },
-    { num: "05", title: "SEO &amp; Digital Marketing", img: "assets/images/glass-macro.webp", tags: ["Technical SEO", "Content Strategy", "Paid Media"], linkText: "Explore SEO &amp; Marketing" },
-    { num: "06", title: "Brand Building", img: "assets/images/silk-ribbon.jpg", tags: ["Brand Strategy", "Visual Identity", "Logo &amp; Kit"], linkText: "Explore Brand Building" },
-    { num: "07", title: "Data Security", img: "assets/images/security-shield.jpg", tags: ["Security Audits", "Penetration Testing", "Compliance"], linkText: "Explore Data Security" },
+    { num: "01", title: "Web &amp; Software Development", img: "assets/images/code-network.jpg", tags: ["Custom Web Applications", "SaaS Platform Development", "API &amp; Integrations"], linkText: "Explore Web &amp; Software Development", href: "services/web-software-development.html" },
+    { num: "02", title: "Product Development", img: "assets/images/dashboard-cube.jpg", tags: ["Discovery &amp; Strategy", "MVP Development", "Scaling &amp; Iteration"], linkText: "Explore Product Development", href: "#services" },
+    { num: "03", title: "UI/UX Design", img: "assets/images/device-mockups.jpg", tags: ["User Research", "Interface Design", "Prototyping"], linkText: "Explore UI/UX Design", href: "#services" },
+    { num: "04", title: "Video Editing", img: "assets/images/silk-ribbon.jpg", tags: ["Motion Graphics", "Color Grading", "Sound Design"], linkText: "Explore Video Editing", href: "#services" },
+    { num: "05", title: "SEO &amp; Digital Marketing", img: "assets/images/glass-macro.webp", tags: ["Technical SEO", "Content Strategy", "Paid Media"], linkText: "Explore SEO &amp; Marketing", href: "#services" },
+    { num: "06", title: "Brand Building", img: "assets/images/silk-ribbon.jpg", tags: ["Brand Strategy", "Visual Identity", "Logo &amp; Kit"], linkText: "Explore Brand Building", href: "#services" },
+    { num: "07", title: "Data Security", img: "assets/images/security-shield.jpg", tags: ["Security Audits", "Penetration Testing", "Compliance"], linkText: "Explore Data Security", href: "#services" },
   ];
 
   function setActiveService(index) {
@@ -221,6 +221,7 @@
       svcPanelNum.textContent = data.num;
       svcPanelTitle.innerHTML = data.title;
       svcPanelTags.innerHTML = data.tags.map((t) => `<span class="text-[0.7rem] font-medium px-2.5 py-1 rounded-full glass-dark text-ivory/90">${t}</span>`).join("");
+      svcPanelLink.href = data.href;
       svcPanelLink.innerHTML = data.linkText + svcPanelLink.querySelector("svg").outerHTML;
     };
 

@@ -89,6 +89,21 @@
 #headerContainer.is-scrolled {
   transform: scale(0.99);
 }
+
+/* Pages whose hero sits directly under the transparent header need light
+   nav text there, since the default dark maroon is unreadable on a dark
+   hero — once scrolled the header gets its light "glass" bg and the
+   default dark text is correct again. */
+#siteHeader.header-on-dark:not(.is-scrolled) .nav-link,
+#siteHeader.header-on-dark:not(.is-scrolled) #megaMenuTrigger,
+#siteHeader.header-on-dark:not(.is-scrolled) #mobileMenuBtn,
+#siteHeader.header-on-dark:not(.is-scrolled) a[aria-label="IMAGIC home"] span {
+  color: rgba(255, 248, 237, 0.85);
+}
+#siteHeader.header-on-dark:not(.is-scrolled) .nav-link:hover,
+#siteHeader.header-on-dark:not(.is-scrolled) #megaMenuTrigger:hover {
+  color: #fff8ed;
+}
 .nav-link {
   position: relative;
 }
