@@ -325,6 +325,19 @@
   }
 
   /* ---------------------------------------------------------------------
+     Contact form (contact.html only) — no backend, simulate success
+     --------------------------------------------------------------------- */
+  const contactForm = document.getElementById("contactForm");
+  const contactSuccess = document.getElementById("contactSuccess");
+  if (contactForm && contactSuccess) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      contactForm.classList.add("hidden");
+      contactSuccess.classList.remove("hidden");
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      Smooth-scroll offset for fixed header on anchor links
      --------------------------------------------------------------------- */
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
