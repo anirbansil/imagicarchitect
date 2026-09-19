@@ -51,6 +51,7 @@
   const megaPanel = document.getElementById("megaMenuPanel");
   const megaChevron = document.getElementById("megaChevron");
   let megaOpen = false;
+  let megaCloseTimer = null;
 
   function setMegaOpen(open) {
     megaOpen = open;
@@ -58,12 +59,21 @@
     megaChevron.style.transform = open ? "rotate(180deg)" : "";
     megaTrigger.setAttribute("aria-expanded", String(open));
   }
-  megaTrigger.addEventListener("click", (e) => {
-    e.stopPropagation();
-    setMegaOpen(!megaOpen);
+  function openMegaMenu() {
+    clearTimeout(megaCloseTimer);
+    setMegaOpen(true);
+  }
+  function scheduleMegaClose() {
+    clearTimeout(megaCloseTimer);
+    megaCloseTimer = setTimeout(() => setMegaOpen(false), 150);
+  }
+  [megaWrap, megaPanel].forEach((el) => {
+    el.addEventListener("mouseenter", openMegaMenu);
+    el.addEventListener("mouseleave", scheduleMegaClose);
   });
+  megaTrigger.addEventListener("focus", openMegaMenu);
   document.addEventListener("click", (e) => {
-    if (megaOpen && !megaWrap.contains(e.target)) setMegaOpen(false);
+    if (megaOpen && !megaWrap.contains(e.target) && !megaPanel.contains(e.target)) setMegaOpen(false);
   });
   document.querySelectorAll(".mega-item").forEach((a) => {
     a.addEventListener("click", () => setMegaOpen(false));

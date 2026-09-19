@@ -15,7 +15,7 @@
 
 <!-- ==================== HEADER ==================== -->
 <header id="siteHeader" class="fixed top-0 inset-x-0 z-50 transition-all duration-500 py-4">
-  <div id="headerContainer" class="mx-auto max-w-1440 px-5 sm:px-8 transition-all duration-500">
+  <div id="headerContainer" class="relative mx-auto max-w-1440 px-5 sm:px-8 transition-all duration-500">
     <div id="headerBar" class="flex items-center justify-between rounded-2xl px-4 sm:px-6 h-16 transition-all duration-500 bg-transparent">
       <a class="inline-flex items-center gap-2.5" aria-label="IMAGIC home" href="index.html">
         <img src="assets/images/logo-mark.svg" alt="IMAGIC — Institute of Motion Art Graphical Image and Cinematography" class="h-9 sm:h-11 w-9 sm:w-11 object-contain">
@@ -31,38 +31,6 @@
             Services
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 transition-transform duration-300" id="megaChevron"><path d="m6 9 6 6 6-6"></path></svg>
           </button>
-          <div id="megaMenuPanel" class="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[560px] max-w-[90vw] opacity-0 translate-y-2 pointer-events-none transition-all duration-300">
-            <div class="rounded-2xl border border-burgundy/10 bg-ivory shadow-2xl shadow-burgundy/10 p-6 grid grid-cols-2 gap-1">
-              <a href="services/web-software-development.html" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
-                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">01</span>
-                <span><span class="block font-display font-semibold text-sm text-burgundy">Web &amp; Software Development</span><span class="block text-xs text-charcoal/50 mt-0.5">Custom sites, apps &amp; systems</span></span>
-              </a>
-              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
-                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">02</span>
-                <span><span class="block font-display font-semibold text-sm text-burgundy">Product Development</span><span class="block text-xs text-charcoal/50 mt-0.5">Idea to market-ready product</span></span>
-              </a>
-              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
-                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">03</span>
-                <span><span class="block font-display font-semibold text-sm text-burgundy">UI/UX Design</span><span class="block text-xs text-charcoal/50 mt-0.5">Research-driven interfaces</span></span>
-              </a>
-              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
-                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">04</span>
-                <span><span class="block font-display font-semibold text-sm text-burgundy">Video Editing</span><span class="block text-xs text-charcoal/50 mt-0.5">Cinematic edits &amp; motion</span></span>
-              </a>
-              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
-                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">05</span>
-                <span><span class="block font-display font-semibold text-sm text-burgundy">SEO &amp; Digital Marketing</span><span class="block text-xs text-charcoal/50 mt-0.5">Data-driven growth</span></span>
-              </a>
-              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
-                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">06</span>
-                <span><span class="block font-display font-semibold text-sm text-burgundy">Brand Building</span><span class="block text-xs text-charcoal/50 mt-0.5">Identity with meaning</span></span>
-              </a>
-              <a href="index.html#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors col-span-2">
-                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">07</span>
-                <span><span class="block font-display font-semibold text-sm text-burgundy">Data Security</span><span class="block text-xs text-charcoal/50 mt-0.5">Protection by design, hardened and monitored</span></span>
-              </a>
-            </div>
-          </div>
         </div>
 
         <a class="nav-link px-4 py-2 text-sm font-medium transition-colors text-burgundy/70 hover:text-burgundy" href="portfolio.html">Portfolio</a>
@@ -77,6 +45,92 @@
         <button id="mobileMenuBtn" class="lg:hidden p-2 text-burgundy" aria-label="Open menu">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
         </button>
+      </div>
+    </div>
+
+    <div id="megaMenuPanel" class="hidden lg:block absolute left-0 right-0 top-full mt-3 px-5 sm:px-8 opacity-0 translate-y-2 pointer-events-none transition-all duration-300">
+      <div class="rounded-3xl border border-burgundy/10 bg-ivory shadow-2xl shadow-burgundy/10 p-8 lg:p-10 grid grid-cols-12 gap-10">
+        <div class="col-span-4 border-r border-burgundy/10 pr-8">
+          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-gold mb-5">Featured Insight</p>
+          <h3 class="font-display font-extrabold text-burgundy text-2xl xl:text-3xl leading-[1.15] mb-4">One ecosystem.<br>Seven disciplines.</h3>
+          <p class="text-sm text-charcoal/60 leading-relaxed mb-6">Technology, design and digital growth — engineered together so your product, brand and revenue move in the same direction.</p>
+          <a href="index.html#services" class="mega-item inline-flex items-center gap-1.5 text-sm font-semibold text-burgundy hover:gap-2.5 transition-all">
+            Explore all services
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </a>
+        </div>
+        <div class="col-span-8 grid grid-cols-2 gap-x-2">
+          <a href="services/web-software-development.html" class="mega-item group block rounded-xl px-4 py-3 hover:bg-burgundy/5 transition-colors duration-300">
+            <span class="flex items-center justify-between gap-3">
+              <span class="flex items-center gap-3">
+                <span class="font-mono text-xs font-bold text-imagic-gold">01</span>
+                <span class="font-display font-semibold text-sm text-burgundy">Web &amp; Software Development</span>
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 text-burgundy/20 group-hover:text-imagic-gold group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+            <span class="block max-h-0 group-hover:max-h-12 opacity-0 group-hover:opacity-100 group-hover:mt-1 overflow-hidden transition-all duration-300 pl-8 pr-2 text-xs text-charcoal/55 leading-relaxed">Custom sites, apps and systems built to scale with your business.</span>
+          </a>
+          <a href="index.html#services" class="mega-item group block rounded-xl px-4 py-3 hover:bg-burgundy/5 transition-colors duration-300">
+            <span class="flex items-center justify-between gap-3">
+              <span class="flex items-center gap-3">
+                <span class="font-mono text-xs font-bold text-imagic-gold">02</span>
+                <span class="font-display font-semibold text-sm text-burgundy">Product Development</span>
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 text-burgundy/20 group-hover:text-imagic-gold group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+            <span class="block max-h-0 group-hover:max-h-12 opacity-0 group-hover:opacity-100 group-hover:mt-1 overflow-hidden transition-all duration-300 pl-8 pr-2 text-xs text-charcoal/55 leading-relaxed">Idea to market-ready product, engineered end-to-end.</span>
+          </a>
+          <a href="index.html#services" class="mega-item group block rounded-xl px-4 py-3 hover:bg-burgundy/5 transition-colors duration-300">
+            <span class="flex items-center justify-between gap-3">
+              <span class="flex items-center gap-3">
+                <span class="font-mono text-xs font-bold text-imagic-gold">03</span>
+                <span class="font-display font-semibold text-sm text-burgundy">UI/UX Design</span>
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 text-burgundy/20 group-hover:text-imagic-gold group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+            <span class="block max-h-0 group-hover:max-h-12 opacity-0 group-hover:opacity-100 group-hover:mt-1 overflow-hidden transition-all duration-300 pl-8 pr-2 text-xs text-charcoal/55 leading-relaxed">Interfaces that feel effortless — research-driven, accessible and beautiful.</span>
+          </a>
+          <a href="index.html#services" class="mega-item group block rounded-xl px-4 py-3 hover:bg-burgundy/5 transition-colors duration-300">
+            <span class="flex items-center justify-between gap-3">
+              <span class="flex items-center gap-3">
+                <span class="font-mono text-xs font-bold text-imagic-gold">04</span>
+                <span class="font-display font-semibold text-sm text-burgundy">Video Editing</span>
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 text-burgundy/20 group-hover:text-imagic-gold group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+            <span class="block max-h-0 group-hover:max-h-12 opacity-0 group-hover:opacity-100 group-hover:mt-1 overflow-hidden transition-all duration-300 pl-8 pr-2 text-xs text-charcoal/55 leading-relaxed">Cinematic edits and motion design that make your story move.</span>
+          </a>
+          <a href="index.html#services" class="mega-item group block rounded-xl px-4 py-3 hover:bg-burgundy/5 transition-colors duration-300">
+            <span class="flex items-center justify-between gap-3">
+              <span class="flex items-center gap-3">
+                <span class="font-mono text-xs font-bold text-imagic-gold">05</span>
+                <span class="font-display font-semibold text-sm text-burgundy">SEO &amp; Digital Marketing</span>
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 text-burgundy/20 group-hover:text-imagic-gold group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+            <span class="block max-h-0 group-hover:max-h-12 opacity-0 group-hover:opacity-100 group-hover:mt-1 overflow-hidden transition-all duration-300 pl-8 pr-2 text-xs text-charcoal/55 leading-relaxed">Data-driven growth strategies that compound over time.</span>
+          </a>
+          <a href="index.html#services" class="mega-item group block rounded-xl px-4 py-3 hover:bg-burgundy/5 transition-colors duration-300">
+            <span class="flex items-center justify-between gap-3">
+              <span class="flex items-center gap-3">
+                <span class="font-mono text-xs font-bold text-imagic-gold">06</span>
+                <span class="font-display font-semibold text-sm text-burgundy">Brand Building</span>
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 text-burgundy/20 group-hover:text-imagic-gold group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+            <span class="block max-h-0 group-hover:max-h-12 opacity-0 group-hover:opacity-100 group-hover:mt-1 overflow-hidden transition-all duration-300 pl-8 pr-2 text-xs text-charcoal/55 leading-relaxed">Identity with meaning — visual, verbal and unmistakably yours.</span>
+          </a>
+          <a href="index.html#services" class="mega-item group block rounded-xl px-4 py-3 hover:bg-burgundy/5 transition-colors duration-300">
+            <span class="flex items-center justify-between gap-3">
+              <span class="flex items-center gap-3">
+                <span class="font-mono text-xs font-bold text-imagic-gold">07</span>
+                <span class="font-display font-semibold text-sm text-burgundy">Data Security</span>
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 text-burgundy/20 group-hover:text-imagic-gold group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+            <span class="block max-h-0 group-hover:max-h-12 opacity-0 group-hover:opacity-100 group-hover:mt-1 overflow-hidden transition-all duration-300 pl-8 pr-2 text-xs text-charcoal/55 leading-relaxed">Protection by design, hardened and monitored around the clock.</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
