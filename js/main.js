@@ -8,17 +8,24 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 
   /* ---------------------------------------------------------------------
-     Sticky header: solid on scroll + active link highlight
+     Scroll progress bar + sticky header + active nav link
      --------------------------------------------------------------------- */
-  const header = document.getElementById("siteHeader");
-  const navLinks = document.querySelectorAll(".imagic-nav-link");
-  const sections = Array.from(document.querySelectorAll("section[id]"));
+  const progressBar = document.getElementById("scrollProgress");
+  const headerBar = document.getElementById("headerBar");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const sections = Array.from(document.querySelectorAll("main > section[id], footer[id]"));
 
   function onScroll() {
-    header.classList.toggle("is-scrolled", window.scrollY > 24);
+    const doc = document.documentElement;
+    const scrollTop = window.scrollY;
+    const max = doc.scrollHeight - doc.clientHeight;
+    const progress = max > 0 ? scrollTop / max : 0;
+    progressBar.style.transform = `scaleX(${progress})`;
+
+    headerBar.classList.toggle("is-scrolled", scrollTop > 24);
 
     let current = sections[0] && sections[0].id;
-    const scrollPos = window.scrollY + 140;
+    const scrollPos = scrollTop + 140;
     sections.forEach((sec) => {
       if (scrollPos >= sec.offsetTop) current = sec.id;
     });
@@ -30,89 +37,114 @@
   onScroll();
 
   /* ---------------------------------------------------------------------
-     Mobile off-canvas nav + mega menu toggle (touch/click)
+     Desktop mega menu
      --------------------------------------------------------------------- */
-  const mobileToggle = document.getElementById("mobileNavToggle");
-  const navBackdrop = document.getElementById("navBackdrop");
-
-  function closeMobileNav() {
-    header.classList.remove("nav-open");
-  }
-  mobileToggle.addEventListener("click", () => {
-    header.classList.toggle("nav-open");
-  });
-  navBackdrop.addEventListener("click", closeMobileNav);
-
-  document.querySelectorAll(".imagic-nav-collapse .imagic-nav-link:not(#megaMenuTrigger), .mega-menu-item").forEach((a) => {
-    a.addEventListener("click", () => {
-      if (window.innerWidth < 992) closeMobileNav();
-    });
-  });
-
   const megaWrap = document.getElementById("megaMenuWrap");
   const megaTrigger = document.getElementById("megaMenuTrigger");
+  const megaPanel = document.getElementById("megaMenuPanel");
+  const megaChevron = document.getElementById("megaChevron");
+  let megaOpen = false;
+
+  function setMegaOpen(open) {
+    megaOpen = open;
+    megaPanel.classList.toggle("open", open);
+    megaChevron.style.transform = open ? "rotate(180deg)" : "";
+    megaTrigger.setAttribute("aria-expanded", String(open));
+  }
   megaTrigger.addEventListener("click", (e) => {
-    if (window.innerWidth < 992) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      megaWrap.classList.toggle("open");
-    }
+    e.stopPropagation();
+    setMegaOpen(!megaOpen);
+  });
+  document.addEventListener("click", (e) => {
+    if (megaOpen && !megaWrap.contains(e.target)) setMegaOpen(false);
+  });
+  document.querySelectorAll(".mega-item").forEach((a) => {
+    a.addEventListener("click", () => setMegaOpen(false));
   });
 
   /* ---------------------------------------------------------------------
-     Scroll reveal (GSAP + ScrollTrigger) — fade/translate, staggered
+     Mobile menu
+     --------------------------------------------------------------------- */
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenuClose = document.getElementById("mobileMenuClose");
+  const mobileMenuBackdrop = document.getElementById("mobileMenuBackdrop");
+  const mobileServicesToggle = document.getElementById("mobileServicesToggle");
+  const mobileServicesList = document.getElementById("mobileServicesList");
+  const mobileServicesChevron = document.getElementById("mobileServicesChevron");
+
+  function openMobileMenu() {
+    mobileMenu.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+  function closeMobileMenu() {
+    mobileMenu.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+  mobileMenuBtn.addEventListener("click", openMobileMenu);
+  mobileMenuClose.addEventListener("click", closeMobileMenu);
+  mobileMenuBackdrop.addEventListener("click", closeMobileMenu);
+  document.querySelectorAll(".mobile-nav-links").forEach((a) => {
+    if (a.tagName === "A") a.addEventListener("click", closeMobileMenu);
+  });
+  mobileServicesToggle.addEventListener("click", () => {
+    const isOpen = mobileServicesList.classList.toggle("flex");
+    mobileServicesList.classList.toggle("hidden", !isOpen);
+    mobileServicesChevron.style.transform = isOpen ? "rotate(180deg)" : "";
+    mobileServicesToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  /* ---------------------------------------------------------------------
+     Scroll reveal (GSAP + ScrollTrigger)
      --------------------------------------------------------------------- */
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
 
     if (!reducedMotion) {
-      // Hero entrance sequence on load
       const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
       heroTl
-        .to(".hero .eyebrow", { opacity: 1, y: 0, duration: 0.7, delay: 0.2 })
-        .to(".hero-headline .line-inner", { y: "0%", duration: 0.9, stagger: 0.12 }, "-=0.35")
-        .to(".hero-lead", { opacity: 1, y: 0, duration: 0.7 }, "-=0.45")
-        .to(".hero-actions", { opacity: 1, y: 0, duration: 0.6 }, "-=0.4")
-        .to(".hero-visual", { opacity: 1, y: 0, duration: 0.9 }, "-=0.5");
+        .to("#home [data-reveal]:first-of-type", { opacity: 1, y: 0, duration: 0.7, delay: 0.15 })
+        .to(".hero-line", { y: "0%", duration: 0.9, stagger: 0.12 }, "-=0.35")
+        .to("#home p[data-reveal]", { opacity: 1, y: 0, duration: 0.7 }, "-=0.45")
+        .to("#home .flex-wrap[data-reveal]", { opacity: 1, y: 0, duration: 0.6 }, "-=0.4")
+        .to("#home .aspect-\\[4\\/5\\]", { opacity: 1, y: 0, duration: 0.9 }, "-=0.5");
 
-      // Generic reveal-up / reveal-fade for everything below the fold
+      gsap.set("#home [data-reveal], .hero-line, .aspect-\\[4\\/5\\][data-reveal]", { opacity: 0, y: 24 });
+      gsap.set(".hero-line", { y: "110%", opacity: 1 });
+
       document.querySelectorAll("[data-reveal]").forEach((el) => {
-        if (el.closest(".hero")) return; // hero handled by timeline above
+        if (el.closest("#home")) return;
         gsap.fromTo(
           el,
-          { opacity: 0, y: el.classList.contains("reveal-fade") ? 0 : 30 },
+          { opacity: 0, y: 24 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
+            duration: 0.7,
             ease: "power3.out",
             scrollTrigger: {
               trigger: el,
-              start: "top 88%",
+              start: "top 90%",
               toggleActions: "play none none none",
             },
           }
         );
       });
 
-      // Process steps: sequential highlight of the dot as each enters view
       document.querySelectorAll("[data-process]").forEach((el) => {
         ScrollTrigger.create({
           trigger: el,
-          start: "top 75%",
-          onEnter: () => el.classList.add("in-view"),
+          start: "top 78%",
+          onEnter: () => el.querySelector(".dot").classList.add("in-view"),
         });
       });
 
-      // Self-hosted webfonts and images can reflow the page after ScrollTrigger
-      // has already measured it, leaving lower-page triggers misaligned — so
-      // recalculate once fonts/images finish loading.
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(() => ScrollTrigger.refresh());
       }
       window.addEventListener("load", () => ScrollTrigger.refresh());
     } else {
-      document.querySelectorAll("[data-reveal], .hero-lead, .hero-actions, .hero-visual, .hero .eyebrow, .line-inner").forEach((el) => {
+      document.querySelectorAll("[data-reveal], .hero-line").forEach((el) => {
         el.style.opacity = 1;
         el.style.transform = "none";
       });
@@ -120,7 +152,7 @@
   }
 
   /* ---------------------------------------------------------------------
-     Animated counters — trigger once when in viewport
+     Animated counters
      --------------------------------------------------------------------- */
   const counters = document.querySelectorAll("[data-count-to]");
   const counterObserver = new IntersectionObserver(
@@ -143,8 +175,7 @@
         function tick(now) {
           const progress = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
-          const value = target * eased;
-          el.textContent = value.toFixed(decimals) + suffix;
+          el.textContent = (target * eased).toFixed(decimals) + suffix;
           if (progress < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
@@ -155,103 +186,106 @@
   counters.forEach((el) => counterObserver.observe(el));
 
   /* ---------------------------------------------------------------------
-     Interactive services switcher (click a row -> swap panel content)
+     Services accordion + sticky panel
      --------------------------------------------------------------------- */
   const svcRows = document.querySelectorAll(".svc-row");
-  const svcPanelImgs = document.querySelectorAll(".svc-panel-img");
-  const svcTags = document.getElementById("svcTags");
-  const svcCta = document.getElementById("svcCta");
-  const svcHeading = document.getElementById("svcHeading");
-  const svcDesc = document.getElementById("svcDesc");
+  const svcPanelImg = document.getElementById("svcPanelImg");
+  const svcPanelNum = document.getElementById("svcPanelNum");
+  const svcPanelTitle = document.getElementById("svcPanelTitle");
+  const svcPanelTags = document.getElementById("svcPanelTags");
+  const svcPanelLink = document.getElementById("svcPanelLink");
 
   const svcData = [
-    {
-      heading: "Build digital experiences that work.",
-      desc: "From websites to mobile apps, dashboards to custom software — we craft interfaces that feel effortless and systems that perform under pressure.",
-      tags: ["Website UI", "Mobile UI", "Dashboard", "Software"], cta: "Explore Web & Software",
-    },
-    {
-      heading: "Products people love to use.",
-      desc: "From validated idea to market-ready digital product — engineering and design moving in step, end to end.",
-      tags: ["Discovery", "Prototype", "MVP", "Scale"], cta: "Explore Product Development",
-    },
-    {
-      heading: "Interfaces that feel effortless.",
-      desc: "Research-driven, accessible design systems that make complex products simple to use.",
-      tags: ["Wireframes", "UI Kit", "Prototyping", "Testing"], cta: "Explore UI/UX Design",
-    },
-    {
-      heading: "Motion that moves people.",
-      desc: "Cinematic edits and motion graphics that turn footage into content people actually watch.",
-      tags: ["Motion Graphics", "Color Grade", "Sound Design", "Edit"], cta: "Explore Video Editing",
-    },
-    {
-      heading: "Growth you can measure.",
-      desc: "Data-driven search, content and paid strategy engineered to compound over time, not spike and fade.",
-      tags: ["Technical SEO", "Content Strategy", "Paid Media"], cta: "Explore SEO & Marketing",
-    },
-    {
-      heading: "Identity with meaning.",
-      desc: "Brand strategy and visual systems built with the logic to back up the look.",
-      tags: ["Brand Strategy", "Visual Identity", "Logo & Kit"], cta: "Explore Brand Building",
-    },
-    {
-      heading: "Protection by design.",
-      desc: "Security audits, hardening and continuous monitoring built into the architecture, not bolted on after.",
-      tags: ["Security Audit", "Penetration Testing", "Compliance"], cta: "Explore Data Security",
-    },
+    { num: "01", title: "Web &amp; Software Development", img: "assets/images/code-network.jpg", tags: ["Custom Web Applications", "SaaS Platform Development", "API &amp; Integrations"], linkText: "Explore Web &amp; Software Development" },
+    { num: "02", title: "Product Development", img: "assets/images/dashboard-cube.jpg", tags: ["Discovery &amp; Strategy", "MVP Development", "Scaling &amp; Iteration"], linkText: "Explore Product Development" },
+    { num: "03", title: "UI/UX Design", img: "assets/images/device-mockups.jpg", tags: ["User Research", "Interface Design", "Prototyping"], linkText: "Explore UI/UX Design" },
+    { num: "04", title: "Video Editing", img: "assets/images/silk-ribbon.jpg", tags: ["Motion Graphics", "Color Grading", "Sound Design"], linkText: "Explore Video Editing" },
+    { num: "05", title: "SEO &amp; Digital Marketing", img: "assets/images/glass-macro.webp", tags: ["Technical SEO", "Content Strategy", "Paid Media"], linkText: "Explore SEO &amp; Marketing" },
+    { num: "06", title: "Brand Building", img: "assets/images/silk-ribbon.jpg", tags: ["Brand Strategy", "Visual Identity", "Logo &amp; Kit"], linkText: "Explore Brand Building" },
+    { num: "07", title: "Data Security", img: "assets/images/security-shield.jpg", tags: ["Security Audits", "Penetration Testing", "Compliance"], linkText: "Explore Data Security" },
   ];
 
   function setActiveService(index) {
     svcRows.forEach((row) => row.classList.toggle("active", row.dataset.panel === String(index)));
-    svcPanelImgs.forEach((img) => img.classList.toggle("active", img.dataset.panelImg === String(index)));
-
     const data = svcData[index];
-    const applyText = () => {
-      svcHeading.textContent = data.heading;
-      svcDesc.textContent = data.desc;
-      svcTags.innerHTML = data.tags.map((t) => `<span>${t}</span>`).join("");
-      svcCta.innerHTML = data.cta + ' <span class="arrow">&rarr;</span>';
+
+    const applyPanel = () => {
+      svcPanelImg.src = data.img;
+      svcPanelNum.textContent = data.num;
+      svcPanelTitle.innerHTML = data.title;
+      svcPanelTags.innerHTML = data.tags.map((t) => `<span class="text-[0.7rem] font-medium px-2.5 py-1 rounded-full glass-dark text-ivory/90">${t}</span>`).join("");
+      svcPanelLink.innerHTML = data.linkText + svcPanelLink.querySelector("svg").outerHTML;
     };
+
     if (window.gsap) {
-      const group = [svcHeading, svcDesc, svcTags, svcCta];
-      gsap.to(group, { opacity: 0, y: 6, duration: 0.18, onComplete: () => {
-        applyText();
-        gsap.fromTo(group, { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.03 });
+      gsap.to(svcPanelImg, { opacity: 0, duration: 0.2, onComplete: () => {
+        applyPanel();
+        gsap.to(svcPanelImg, { opacity: 1, duration: 0.35 });
       }});
     } else {
-      applyText();
+      applyPanel();
     }
   }
 
   svcRows.forEach((row) => {
-    row.addEventListener("click", () => setActiveService(row.dataset.panel));
+    row.querySelector("a").addEventListener("click", (e) => {
+      e.preventDefault();
+      setActiveService(row.dataset.panel);
+    });
   });
 
   /* ---------------------------------------------------------------------
-     Testimonial carousel — auto-rotate + dot navigation
+     Testimonial carousel — prev/next + dots
      --------------------------------------------------------------------- */
-  const testiSlides = document.querySelectorAll(".testi-slide");
-  const testiDots = document.querySelectorAll("#testiDots button");
+  const testimonials = [
+    { quote: "They grew our organic traffic by sixty percent in two quarters — with a strategy we could actually sustain ourselves.", name: "David Park", role: "Marketing Director, Pulse Commerce", tag: "SEO &amp; Digital Marketing" },
+    { quote: "IMAGIC didn't just build our platform — they understood the business behind it. The result felt like it was always meant to exist.", name: "Sarah Chen", role: "Chief Product Officer, Northwind Finance", tag: "Web &amp; Software Development" },
+    { quote: "The redesign paid for itself in months. Support tickets dropped and our customers finally say the product feels effortless.", name: "Elena Rossi", role: "Head of Product, Atlas Reef", tag: "UI/UX Design" },
+    { quote: "From idea to launch in a fraction of the time we expected. They treated our product like their own and it shows in every detail.", name: "Marcus Chen", role: "Founder, Verde Collective", tag: "Product Development" },
+  ];
+
+  const testiQuote = document.getElementById("testiQuote");
+  const testiName = document.getElementById("testiName");
+  const testiRole = document.getElementById("testiRole");
+  const testiTag = document.getElementById("testiTag");
+  const testiDotsWrap = document.getElementById("testiDots");
   let testiIndex = 0;
-  let testiTimer;
+
+  testimonials.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.className = "h-1 rounded-full transition-all bg-burgundy/20";
+    dot.setAttribute("aria-label", `Go to testimonial ${i + 1}`);
+    dot.addEventListener("click", () => showTesti(i));
+    testiDotsWrap.appendChild(dot);
+  });
 
   function showTesti(index) {
-    testiIndex = (index + testiSlides.length) % testiSlides.length;
-    testiSlides.forEach((s, i) => s.classList.toggle("active", i === testiIndex));
-    testiDots.forEach((d, i) => d.classList.toggle("active", i === testiIndex));
-  }
-  function startTestiAuto() {
-    clearInterval(testiTimer);
-    testiTimer = setInterval(() => showTesti(testiIndex + 1), 6000);
-  }
-  testiDots.forEach((dot) => {
-    dot.addEventListener("click", () => {
-      showTesti(parseInt(dot.dataset.slide, 10));
-      startTestiAuto();
+    testiIndex = (index + testimonials.length) % testimonials.length;
+    const t = testimonials[testiIndex];
+    const apply = () => {
+      testiQuote.innerHTML = `&ldquo;${t.quote}&rdquo;`;
+      testiName.textContent = t.name;
+      testiRole.textContent = t.role;
+      testiTag.innerHTML = t.tag;
+    };
+    if (window.gsap) {
+      gsap.to("#testiContent", { opacity: 0, duration: 0.2, onComplete: () => {
+        apply();
+        gsap.to("#testiContent", { opacity: 1, duration: 0.35 });
+      }});
+    } else {
+      apply();
+    }
+    Array.from(testiDotsWrap.children).forEach((dot, i) => {
+      dot.classList.toggle("w-10", i === testiIndex);
+      dot.classList.toggle("w-4", i !== testiIndex);
+      dot.classList.toggle("bg-imagic-yellow", i === testiIndex);
+      dot.classList.toggle("bg-burgundy/20", i !== testiIndex);
     });
-  });
-  if (testiSlides.length) startTestiAuto();
+  }
+  document.getElementById("testiPrev").addEventListener("click", () => showTesti(testiIndex - 1));
+  document.getElementById("testiNext").addEventListener("click", () => showTesti(testiIndex + 1));
+  showTesti(0);
 
   /* ---------------------------------------------------------------------
      Smooth-scroll offset for fixed header on anchor links
@@ -263,7 +297,7 @@
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      const offset = window.innerWidth < 992 ? 84 : 100;
+      const offset = window.innerWidth < 1024 ? 84 : 100;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: reducedMotion ? "auto" : "smooth" });
     });

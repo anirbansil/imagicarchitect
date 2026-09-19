@@ -4,120 +4,177 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IMAGIC — Technology that turns ideas into impact</title>
-<meta name="description" content="IMAGIC is a creative technology studio building digital experiences, software, and brands that turn ideas into measurable impact.">
+<meta name="description" content="IMAGIC — Institute of Motion Art Graphical Image and Cinematography. Technology that turns ideas into impact. Web & software development, product development, UI/UX design, video editing, SEO & digital marketing, brand building and data security.">
 <link rel="icon" href="assets/images/logo-mark.svg" type="image/svg+xml">
-
-<!-- Bootstrap -->
-<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Theme (includes self-hosted @font-face for Poppins) -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="assets/vendor/tailwind/tailwind.css">
 </head>
-<body>
+<body class="min-h-screen bg-ivory font-sans">
+
+<!-- Scroll progress bar -->
+<div id="scrollProgress" class="fixed top-0 left-0 right-0 h-[2px] origin-left bg-imagic-yellow z-[60]" style="transform: scaleX(0)"></div>
 
 <!-- ==================== HEADER ==================== -->
-<header class="imagic-header" id="siteHeader">
-  <div class="container-xl-custom">
-    <nav class="navbar navbar-expand-lg align-items-center d-flex justify-content-between">
-      <a href="#home" class="imagic-brand">
-        <img src="assets/images/logo-mark.svg" alt="IMAGIC logo">
-        <span class="imagic-brand-text">imagic</span>
+<header id="siteHeader" class="fixed top-0 inset-x-0 z-50 transition-all duration-500 py-4">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8 transition-all duration-500">
+    <div id="headerBar" class="flex items-center justify-between rounded-2xl px-4 sm:px-6 h-16 transition-all duration-500 bg-transparent">
+      <a class="inline-flex items-center gap-2.5" aria-label="IMAGIC home" href="#home">
+        <img src="assets/images/logo-mark.svg" alt="IMAGIC — Institute of Motion Art Graphical Image and Cinematography" class="h-9 sm:h-11 w-9 sm:w-11 object-contain">
+        <span class="font-display font-extrabold text-xl sm:text-2xl text-burgundy">imagic</span>
       </a>
 
-      <div class="nav-backdrop" id="navBackdrop"></div>
+      <nav class="hidden lg:flex items-center gap-1">
+        <a class="nav-link px-4 py-2 text-sm font-medium transition-colors text-burgundy" href="#home">Home</a>
+        <a class="nav-link px-4 py-2 text-sm font-medium transition-colors text-burgundy/70 hover:text-burgundy" href="#about">About</a>
 
-      <div class="imagic-nav-collapse" id="imagicNav">
-        <ul class="navbar-nav flex-column flex-lg-row align-items-lg-center gap-lg-1">
-          <li class="nav-item"><a href="#home" class="nav-link imagic-nav-link active">Home</a></li>
-          <li class="nav-item"><a href="#about" class="nav-link imagic-nav-link">About</a></li>
-
-          <li class="nav-item mega-menu-wrap" id="megaMenuWrap">
-            <a href="#services" class="nav-link imagic-nav-link d-flex align-items-center gap-1" id="megaMenuTrigger">
-              Services
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            </a>
-            <div class="mega-menu">
-              <div class="mega-menu-panel">
-                <div class="mega-menu-list">
-                  <a href="#services" class="mega-menu-item">
-                    <span class="idx">01</span>
-                    <span><span class="label d-block">Web &amp; Software Development</span><span class="desc">Custom websites, apps and systems</span></span>
-                  </a>
-                  <a href="#services" class="mega-menu-item">
-                    <span class="idx">02</span>
-                    <span><span class="label d-block">Product Development</span><span class="desc">From validated idea to market-ready product</span></span>
-                  </a>
-                  <a href="#services" class="mega-menu-item">
-                    <span class="idx">03</span>
-                    <span><span class="label d-block">UI/UX Design</span><span class="desc">Research-driven, accessible interfaces</span></span>
-                  </a>
-                  <a href="#services" class="mega-menu-item">
-                    <span class="idx">04</span>
-                    <span><span class="label d-block">Video Editing</span><span class="desc">Cinematic edits and motion that move people</span></span>
-                  </a>
-                  <a href="#services" class="mega-menu-item">
-                    <span class="idx">05</span>
-                    <span><span class="label d-block">SEO &amp; Digital Marketing</span><span class="desc">Data-driven growth and analytics</span></span>
-                  </a>
-                  <a href="#services" class="mega-menu-item">
-                    <span class="idx">06</span>
-                    <span><span class="label d-block">Brand Building</span><span class="desc">Identity with meaning and visual voice</span></span>
-                  </a>
-                  <a href="#services" class="mega-menu-item">
-                    <span class="idx">07</span>
-                    <span><span class="label d-block">Data Security</span><span class="desc">Protection by design, hardened and monitored</span></span>
-                  </a>
-                </div>
-                <div class="mega-menu-promo" style="background-image:url('assets/images/security-shield.jpg');">
-                  <div>
-                    <span class="eyebrow" style="color:var(--imagic-yellow)">One Ecosystem</span>
-                    <h4>Seven disciplines, one team.</h4>
-                    <p>Technology, design and growth engineered to move in the same direction.</p>
-                  </div>
-                  <a href="#services" class="btn-imagic btn-accent-imagic">Explore all services <span class="arrow">&rarr;</span></a>
-                </div>
-              </div>
+        <div class="relative" id="megaMenuWrap">
+          <button id="megaMenuTrigger" class="group flex items-center gap-1 px-4 py-2 text-sm font-medium text-burgundy/80 hover:text-burgundy transition-colors" aria-expanded="false">
+            Services
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 transition-transform duration-300" id="megaChevron"><path d="m6 9 6 6 6-6"></path></svg>
+          </button>
+          <div id="megaMenuPanel" class="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[560px] max-w-[90vw] opacity-0 translate-y-2 pointer-events-none transition-all duration-300">
+            <div class="rounded-2xl border border-burgundy/10 bg-ivory shadow-2xl shadow-burgundy/10 p-6 grid grid-cols-2 gap-1">
+              <a href="#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">01</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">Web &amp; Software Development</span><span class="block text-xs text-charcoal/50 mt-0.5">Custom sites, apps &amp; systems</span></span>
+              </a>
+              <a href="#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">02</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">Product Development</span><span class="block text-xs text-charcoal/50 mt-0.5">Idea to market-ready product</span></span>
+              </a>
+              <a href="#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">03</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">UI/UX Design</span><span class="block text-xs text-charcoal/50 mt-0.5">Research-driven interfaces</span></span>
+              </a>
+              <a href="#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">04</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">Video Editing</span><span class="block text-xs text-charcoal/50 mt-0.5">Cinematic edits &amp; motion</span></span>
+              </a>
+              <a href="#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">05</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">SEO &amp; Digital Marketing</span><span class="block text-xs text-charcoal/50 mt-0.5">Data-driven growth</span></span>
+              </a>
+              <a href="#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">06</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">Brand Building</span><span class="block text-xs text-charcoal/50 mt-0.5">Identity with meaning</span></span>
+              </a>
+              <a href="#services" class="mega-item flex items-start gap-3 rounded-xl p-3 hover:bg-burgundy/5 transition-colors col-span-2">
+                <span class="font-mono text-xs font-bold text-imagic-gold mt-0.5">07</span>
+                <span><span class="block font-display font-semibold text-sm text-burgundy">Data Security</span><span class="block text-xs text-charcoal/50 mt-0.5">Protection by design, hardened and monitored</span></span>
+              </a>
             </div>
-          </li>
+          </div>
+        </div>
 
-          <li class="nav-item"><a href="#portfolio" class="nav-link imagic-nav-link">Portfolio</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link imagic-nav-link">Contact Us</a></li>
-        </ul>
-      </div>
+        <a class="nav-link px-4 py-2 text-sm font-medium transition-colors text-burgundy/70 hover:text-burgundy" href="#portfolio">Portfolio</a>
+        <a class="nav-link px-4 py-2 text-sm font-medium transition-colors text-burgundy/70 hover:text-burgundy" href="#contact">Contact Us</a>
+      </nav>
 
-      <div class="d-flex align-items-center gap-2">
-        <a href="#contact" class="imagic-cta-btn header-desktop-actions">Let's Talk <span class="arrow">&rarr;</span></a>
-        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle menu"><span></span></button>
+      <div class="flex items-center gap-3">
+        <a class="hidden sm:inline-flex items-center gap-1.5 bg-burgundy text-ivory px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-burgundy-light transition-colors duration-300" href="#contact">
+          Let's Talk
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
+        <button id="mobileMenuBtn" class="lg:hidden p-2 text-burgundy" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
       </div>
-    </nav>
+    </div>
   </div>
 </header>
 
+<!-- Mobile menu overlay -->
+<div id="mobileMenu" class="fixed inset-0 z-[70] lg:hidden opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="mobileMenuBackdrop" class="absolute inset-0 bg-charcoal/50"></div>
+  <div id="mobileMenuPanel" class="absolute top-0 right-0 h-full w-[85%] max-w-sm bg-ivory shadow-2xl translate-x-full transition-transform duration-400 flex flex-col px-7 pt-8 pb-10">
+    <div class="flex items-center justify-between mb-10">
+      <a class="inline-flex items-center gap-2.5" href="#home">
+        <img src="assets/images/logo-mark.svg" alt="IMAGIC" class="h-9 w-9 object-contain">
+        <span class="font-display font-extrabold text-xl text-burgundy">imagic</span>
+      </a>
+      <button id="mobileMenuClose" class="p-2 text-burgundy" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-1 mobile-nav-links">
+      <a href="#home" class="py-3.5 text-lg font-display font-semibold text-burgundy border-b border-burgundy/10">Home</a>
+      <a href="#about" class="py-3.5 text-lg font-display font-semibold text-burgundy/80 border-b border-burgundy/10">About</a>
+      <button id="mobileServicesToggle" class="flex items-center justify-between py-3.5 text-lg font-display font-semibold text-burgundy/80 border-b border-burgundy/10 w-full text-left" aria-expanded="false">
+        Services
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 transition-transform duration-300" id="mobileServicesChevron"><path d="m6 9 6 6 6-6"></path></svg>
+      </button>
+      <div id="mobileServicesList" class="hidden flex-col gap-0.5 pl-3 border-b border-burgundy/10 pb-2">
+        <a href="#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">Web &amp; Software Development</a>
+        <a href="#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">Product Development</a>
+        <a href="#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">UI/UX Design</a>
+        <a href="#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">Video Editing</a>
+        <a href="#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">SEO &amp; Digital Marketing</a>
+        <a href="#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">Brand Building</a>
+        <a href="#services" class="mobile-nav-links py-2.5 text-sm font-medium text-burgundy/70">Data Security</a>
+      </div>
+      <a href="#portfolio" class="mobile-nav-links py-3.5 text-lg font-display font-semibold text-burgundy/80 border-b border-burgundy/10">Portfolio</a>
+      <a href="#contact" class="mobile-nav-links py-3.5 text-lg font-display font-semibold text-burgundy/80 border-b border-burgundy/10">Contact Us</a>
+    </nav>
+    <a href="#contact" class="mobile-nav-links mt-8 inline-flex items-center justify-center gap-1.5 bg-burgundy text-ivory px-5 py-3.5 rounded-full text-sm font-semibold">
+      Let's Talk
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+    </a>
+  </div>
+</div>
+
+<main>
+
 <!-- ==================== HERO ==================== -->
-<section class="hero" id="home">
-  <div class="container-xl-custom">
-    <div class="row align-items-center gy-5">
-      <div class="col-lg-6">
-        <span class="eyebrow reveal-fade" data-reveal>IT Services &middot; Digital Solutions</span>
-        <h1 class="hero-headline">
-          <span class="line-mask"><span class="line-inner" data-reveal-line>Technology that</span></span>
-          <span class="line-mask"><span class="line-inner" data-reveal-line>turns ideas into</span></span>
-          <span class="line-mask"><span class="line-inner" data-reveal-line>impact<span class="dot">.</span></span></span>
+<section id="home" class="relative pt-32 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
+  <div class="absolute top-1/4 -right-32 w-[500px] h-[500px] rounded-full bg-imagic-yellow/10 blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-0 -left-32 w-[400px] h-[400px] rounded-full bg-burgundy/5 blur-[100px] pointer-events-none"></div>
+  <div class="mx-auto max-w-1440 px-5 sm:px-8 relative">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      <div class="lg:col-span-7">
+        <div class="inline-flex items-center gap-2.5 mb-7" data-reveal>
+          <span class="w-8 h-px bg-imagic-yellow"></span>
+          <span class="text-xs font-semibold tracking-[0.22em] uppercase text-burgundy/70">IT Services &bull; Digital Solutions</span>
+        </div>
+        <h1 class="font-display font-extrabold text-burgundy leading-[1.04] tracking-tight text-[2.75rem] sm:text-[3.5rem] lg:text-[5rem] xl:text-[5.5rem]">
+          <span class="block overflow-hidden"><span class="hero-line block" data-hero-line>Technology that</span></span>
+          <span class="block overflow-hidden"><span class="hero-line block" data-hero-line>turns ideas into</span></span>
+          <span class="block overflow-hidden"><span class="hero-line block" data-hero-line>impact<span class="text-imagic-yellow">.</span></span></span>
         </h1>
-        <p class="hero-lead reveal-up" data-reveal>We create digital experiences, software, products, brands and technology solutions for modern businesses — engineered to grow with you.</p>
-        <div class="hero-actions reveal-up" data-reveal>
-          <a href="#services" class="btn-imagic btn-primary-imagic">Explore Services <span class="arrow">&rarr;</span></a>
-          <a href="#contact" class="btn-imagic btn-ghost-imagic">Start a Project <span class="arrow">&rarr;</span></a>
+        <p class="mt-7 text-charcoal/70 text-lg leading-relaxed max-w-xl" data-reveal>We create digital experiences, software, products, brands and technology solutions for modern businesses — engineered to grow with you.</p>
+        <div class="mt-9 flex flex-wrap items-center gap-4" data-reveal>
+          <a class="group inline-flex items-center gap-2 bg-burgundy text-ivory px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-burgundy-light transition-colors duration-300" href="#services">
+            Explore Services
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+          <a class="group inline-flex items-center gap-2 border border-burgundy/20 text-burgundy px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-burgundy hover:text-ivory transition-all duration-300" href="#contact">
+            Start a Project
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </a>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div class="hero-visual reveal-up" data-reveal>
-          <div class="hero-visual-frame">
-            <img src="assets/images/dashboard-cube.jpg" alt="IMAGIC digital product ecosystem visual">
+      <div class="lg:col-span-5 relative">
+        <div class="relative aspect-[4/5] rounded-3xl overflow-hidden" data-reveal>
+          <img src="assets/images/dashboard-cube.jpg" loading="lazy" class="w-full h-full object-cover" alt="Abstract technology composition with floating glass UI fragments">
+          <div class="absolute inset-0 bg-gradient-to-t from-burgundy/20 via-transparent to-transparent"></div>
+        </div>
+        <div class="float-card absolute -left-4 sm:-left-8 top-1/4 glass rounded-2xl p-4 w-40 shadow-lg hidden sm:block">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-imagic-yellow"></span>
+            <span class="text-[0.65rem] font-semibold text-burgundy tracking-wide">ANALYTICS</span>
           </div>
-          <div class="hero-stat-badge">
-            <div class="num" data-count-to="99.98" data-decimals="2" data-suffix="%">0%</div>
-            <div class="lbl">Platform Uptime</div>
+          <div class="flex items-end gap-1 h-10">
+            <div class="flex-1 rounded-sm bg-burgundy/20" style="height:40%"></div>
+            <div class="flex-1 rounded-sm bg-burgundy/20" style="height:65%"></div>
+            <div class="flex-1 rounded-sm bg-burgundy/20" style="height:50%"></div>
+            <div class="flex-1 rounded-sm bg-burgundy/20" style="height:80%"></div>
+            <div class="flex-1 rounded-sm bg-burgundy/20" style="height:60%"></div>
+            <div class="flex-1 rounded-sm bg-imagic-yellow" style="height:95%"></div>
+          </div>
+        </div>
+        <div class="float-card absolute -right-2 sm:-right-6 bottom-8 glass rounded-2xl p-4 w-44 shadow-lg hidden sm:block">
+          <div class="text-[0.65rem] font-semibold text-burgundy/60 tracking-wide mb-1">UPTIME</div>
+          <div class="font-display font-extrabold text-2xl text-burgundy" data-count-to="99.98" data-decimals="2" data-suffix="%">0%</div>
+          <div class="mt-2 h-1.5 rounded-full bg-burgundy/10 overflow-hidden">
+            <div class="h-full w-[99%] rounded-full bg-imagic-yellow"></div>
           </div>
         </div>
       </div>
@@ -125,195 +182,261 @@
   </div>
 </section>
 
-<!-- ==================== STAT STRIP (company snapshot) ==================== -->
-<section class="section-tight section-dark">
-  <div class="container-xl-custom">
-    <div class="stat-strip">
-      <div class="stat-item reveal-up" data-reveal>
-        <div class="num"><span data-count-to="10">0</span>+</div>
-        <div class="lbl">Years Experience</div>
+<!-- ==================== STATS STRIP ==================== -->
+<section class="py-14 border-y border-burgundy/10 bg-cream/40">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+      <div class="text-center lg:text-left" data-reveal>
+        <div class="font-display font-extrabold text-4xl lg:text-5xl text-burgundy tracking-tight"><span data-count-to="10">0</span>+</div>
+        <div class="mt-2 text-sm font-medium text-charcoal/60 tracking-wide">Years Experience</div>
       </div>
-      <div class="stat-item reveal-up" data-reveal>
-        <div class="num"><span data-count-to="200">0</span>+</div>
-        <div class="lbl">Projects Delivered</div>
+      <div class="text-center lg:text-left" data-reveal>
+        <div class="font-display font-extrabold text-4xl lg:text-5xl text-burgundy tracking-tight"><span data-count-to="200">0</span>+</div>
+        <div class="mt-2 text-sm font-medium text-charcoal/60 tracking-wide">Projects Delivered</div>
       </div>
-      <div class="stat-item reveal-up" data-reveal>
-        <div class="num"><span data-count-to="50">0</span>+</div>
-        <div class="lbl">Businesses Served</div>
+      <div class="text-center lg:text-left" data-reveal>
+        <div class="font-display font-extrabold text-4xl lg:text-5xl text-burgundy tracking-tight"><span data-count-to="50">0</span>+</div>
+        <div class="mt-2 text-sm font-medium text-charcoal/60 tracking-wide">Businesses Served</div>
       </div>
-      <div class="stat-item reveal-up" data-reveal>
-        <div class="num"><span data-count-to="30">0</span>+</div>
-        <div class="lbl">Dedicated Experts</div>
+      <div class="text-center lg:text-left" data-reveal>
+        <div class="font-display font-extrabold text-4xl lg:text-5xl text-burgundy tracking-tight"><span data-count-to="30">0</span>+</div>
+        <div class="mt-2 text-sm font-medium text-charcoal/60 tracking-wide">Dedicated Experts</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==================== ABOUT ==================== -->
-<section class="section" id="about">
-  <div class="container-xl-custom">
-    <div class="row align-items-center gy-5">
-      <div class="col-lg-6 order-2 order-lg-1">
-        <span class="eyebrow reveal-up" data-reveal>About Imagic</span>
-        <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem)">Technology, creativity and strategy — together.</h2>
-        <p class="hero-lead reveal-up" data-reveal>IMAGIC is a technology and digital solutions company where engineers, designers and strategists work as one team. We don't just ship code — we build products, brands and growth engines that move businesses forward.</p>
-        <div class="about-feature-grid reveal-up" data-reveal>
-          <div class="about-feature">
-            <h4>Unified</h4>
-            <p>One team across all disciplines.</p>
+<section id="about" class="py-24 lg:py-32">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div class="lg:col-span-5 lg:order-2">
+        <div class="relative" data-reveal>
+          <div class="relative aspect-[3/4] rounded-3xl overflow-hidden">
+            <img src="assets/images/glass-macro.webp" loading="lazy" class="w-full h-full object-cover" alt="Architectural glass and metal meeting warm light">
           </div>
-          <div class="about-feature">
-            <h4>Outcome-led</h4>
-            <p>Measured by your business results.</p>
-          </div>
-        </div>
-        <a href="#about" class="about-link reveal-up" data-reveal>More About Imagic <span>&rarr;</span></a>
-      </div>
-      <div class="col-lg-6 order-1 order-lg-2">
-        <div class="about-visual reveal-up" data-reveal>
-          <img src="assets/images/glass-macro.webp" alt="IMAGIC creative craft visual">
-          <div class="about-visual-badge">
-            <div class="num"><span data-count-to="10">0</span>+</div>
-            <div class="lbl">Years crafting digital work</div>
+          <div class="absolute -bottom-6 -left-6 glass rounded-2xl p-5 shadow-xl hidden sm:block">
+            <div class="font-display font-extrabold text-3xl text-burgundy">10+</div>
+            <div class="text-xs text-charcoal/60 mt-1">years building<br>digital products</div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== SERVICES ACCORDION LIST ==================== -->
-<section class="section section-tight" id="services">
-  <div class="container-xl-custom">
-    <span class="eyebrow reveal-up" data-reveal>Featured Services</span>
-    <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem);max-width:640px">Everything you need to build, grow and transform.</h2>
-
-    <ul class="svc-list reveal-up" data-reveal id="svcList">
-      <li class="svc-row active" data-panel="0">
-        <span class="idx">01</span>
-        <div class="flex-grow-1">
-          <div class="name">Web &amp; Software Development</div>
-          <div class="desc">Custom web apps and software engineered to scale with your business.</div>
+      <div class="lg:col-span-7 lg:order-1">
+        <div data-reveal>
+          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-gold mb-5">About Imagic</p>
+          <h2 class="font-display font-extrabold text-burgundy text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-balance">Technology, creativity and strategy — together.</h2>
         </div>
-        <span class="chevron">&rarr;</span>
-      </li>
-      <li class="svc-row" data-panel="1">
-        <span class="idx">02</span>
-        <div class="flex-grow-1">
-          <div class="name">Product Development</div>
-          <div class="desc">From validated idea to market-ready digital product, engineering and design in step.</div>
+        <div data-reveal>
+          <p class="mt-7 text-charcoal/70 text-lg leading-relaxed max-w-xl">IMAGIC is a technology and digital solutions company where engineers, designers and strategists work as one team. We don't just ship code — we build products, brands and growth engines that move businesses forward.</p>
         </div>
-        <span class="chevron">&rarr;</span>
-      </li>
-      <li class="svc-row" data-panel="2">
-        <span class="idx">03</span>
-        <div class="flex-grow-1">
-          <div class="name">UI/UX Design</div>
-          <div class="desc">Interfaces that feel effortless — research-driven, accessible and beautiful.</div>
-        </div>
-        <span class="chevron">&rarr;</span>
-      </li>
-      <li class="svc-row" data-panel="3">
-        <span class="idx">04</span>
-        <div class="flex-grow-1">
-          <div class="name">Video Editing</div>
-          <div class="desc">Cinematic edits, motion graphics and content that moves people.</div>
-        </div>
-        <span class="chevron">&rarr;</span>
-      </li>
-      <li class="svc-row" data-panel="4">
-        <span class="idx">05</span>
-        <div class="flex-grow-1">
-          <div class="name">SEO &amp; Digital Marketing</div>
-          <div class="desc">Data-driven growth — search, content, ads and analytics that compound.</div>
-        </div>
-        <span class="chevron">&rarr;</span>
-      </li>
-      <li class="svc-row" data-panel="5">
-        <span class="idx">06</span>
-        <div class="flex-grow-1">
-          <div class="name">Brand Building</div>
-          <div class="desc">Identities with meaning — strategy, visual systems and logic to it.</div>
-        </div>
-        <span class="chevron">&rarr;</span>
-      </li>
-      <li class="svc-row" data-panel="6">
-        <span class="idx">07</span>
-        <div class="flex-grow-1">
-          <div class="name">Data Security</div>
-          <div class="desc">Protection by design — audits, hardening and continuous monitoring.</div>
-        </div>
-        <span class="chevron">&rarr;</span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ==================== SERVICE SHOWCASE (updates with list selection) ==================== -->
-<section class="section section-dark svc-showcase">
-  <div class="container-xl-custom">
-    <div class="row align-items-center gy-5">
-      <div class="col-lg-5">
-        <span class="eyebrow">Featured Service</span>
-        <h2 style="font-size:clamp(2rem,3.6vw,2.8rem)" id="svcHeading">Build digital experiences that work.</h2>
-        <p class="hero-lead" style="color:rgba(255,248,237,.7)" id="svcDesc">From websites to mobile apps, dashboards to custom software — we craft interfaces that feel effortless and systems that perform under pressure.</p>
-      </div>
-      <div class="col-lg-7">
-        <div class="svc-panel" id="svcPanel">
-          <div class="svc-panel-img active" data-panel-img="0" style="background-image:url('assets/images/code-network.jpg')"></div>
-          <div class="svc-panel-img" data-panel-img="1" style="background-image:url('assets/images/dashboard-cube.jpg')"></div>
-          <div class="svc-panel-img" data-panel-img="2" style="background-image:url('assets/images/device-mockups.jpg')"></div>
-          <div class="svc-panel-img" data-panel-img="3" style="background-image:url('assets/images/silk-ribbon.jpg')"></div>
-          <div class="svc-panel-img" data-panel-img="4" style="background-image:url('assets/images/glass-macro.webp')"></div>
-          <div class="svc-panel-img" data-panel-img="5" style="background-image:url('assets/images/silk-ribbon.jpg')"></div>
-          <div class="svc-panel-img" data-panel-img="6" style="background-image:url('assets/images/security-shield.jpg')"></div>
-
-          <div class="svc-panel-tags" id="svcTags">
-            <span>Website UI</span><span>Mobile UI</span><span>Dashboard</span><span>Software</span>
+        <div data-reveal>
+          <div class="mt-8 grid grid-cols-2 gap-6 max-w-md">
+            <div class="border-l-2 border-imagic-yellow pl-4">
+              <div class="font-display font-bold text-2xl text-burgundy">Unified</div>
+              <div class="text-sm text-charcoal/60 mt-1">One team across all disciplines</div>
+            </div>
+            <div class="border-l-2 border-burgundy/20 pl-4">
+              <div class="font-display font-bold text-2xl text-burgundy">Outcome-led</div>
+              <div class="text-sm text-charcoal/60 mt-1">Measured by your business results</div>
+            </div>
           </div>
-          <div class="svc-panel-cta">
-            <a href="#contact" class="btn-imagic btn-accent-imagic" id="svcCta">Explore Web &amp; Software <span class="arrow">&rarr;</span></a>
-          </div>
+        </div>
+        <div data-reveal>
+          <a class="group mt-9 inline-flex items-center gap-2 font-semibold text-burgundy hover:gap-3 transition-all" href="#about">
+            More About Imagic
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== WHY CHOOSE US ==================== -->
-<section class="section" id="why">
-  <div class="container-xl-custom">
-    <div class="row gy-5">
-      <div class="col-lg-5 reveal-up" data-reveal>
-        <span class="eyebrow">Why Imagic</span>
-        <h2 style="font-size:clamp(2rem,3.6vw,2.8rem)">More than a service provider. Your technology partner.</h2>
+<!-- ==================== SERVICES LIST + STICKY PANEL ==================== -->
+<section id="services" class="py-24 lg:py-32">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8">
+    <div data-reveal>
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-gold mb-5">What We Do</p>
+      <h2 class="font-display font-extrabold text-burgundy text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight max-w-2xl text-balance">Everything you need to build, grow and transform.</h2>
+    </div>
+    <div class="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="lg:col-span-7">
+        <div class="border-t border-burgundy/10" id="svcAccordion">
+          <div class="group border-b border-burgundy/10 svc-row active" data-panel="0">
+            <a href="#services" class="flex items-center gap-5 sm:gap-8 py-6 sm:py-7 relative overflow-hidden">
+              <span class="svc-bar absolute left-0 top-1/2 -translate-y-1/2 w-[3px] bg-imagic-yellow rounded-full"></span>
+              <span class="svc-num font-mono font-bold transition-all duration-300 w-12 sm:w-16 shrink-0 text-xl sm:text-2xl text-burgundy/30">01</span>
+              <div class="flex-1 min-w-0">
+                <h3 class="svc-title font-display font-bold text-xl sm:text-2xl lg:text-3xl transition-colors duration-300 text-burgundy/60 group-hover:text-burgundy">Web &amp; Software Development</h3>
+                <p class="svc-desc text-sm sm:text-base text-charcoal/60 mt-2 max-w-lg hidden">Custom websites, web apps and software systems engineered to scale with your business.</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svc-arrow w-5 h-5 sm:w-6 sm:h-6 shrink-0 transition-all duration-300 text-burgundy/20 -translate-x-2 opacity-0 group-hover:opacity-60"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+          <div class="group border-b border-burgundy/10 svc-row" data-panel="1">
+            <a href="#services" class="flex items-center gap-5 sm:gap-8 py-6 sm:py-7 relative overflow-hidden">
+              <span class="svc-bar absolute left-0 top-1/2 -translate-y-1/2 w-[3px] bg-imagic-yellow rounded-full"></span>
+              <span class="svc-num font-mono font-bold transition-all duration-300 w-12 sm:w-16 shrink-0 text-xl sm:text-2xl text-burgundy/30">02</span>
+              <div class="flex-1 min-w-0">
+                <h3 class="svc-title font-display font-bold text-xl sm:text-2xl lg:text-3xl transition-colors duration-300 text-burgundy/60 group-hover:text-burgundy">Product Development</h3>
+                <p class="svc-desc text-sm sm:text-base text-charcoal/60 mt-2 max-w-lg hidden">From validated idea to market-ready digital product, engineering and design in step.</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svc-arrow w-5 h-5 sm:w-6 sm:h-6 shrink-0 transition-all duration-300 text-burgundy/20 -translate-x-2 opacity-0 group-hover:opacity-60"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+          <div class="group border-b border-burgundy/10 svc-row" data-panel="2">
+            <a href="#services" class="flex items-center gap-5 sm:gap-8 py-6 sm:py-7 relative overflow-hidden">
+              <span class="svc-bar absolute left-0 top-1/2 -translate-y-1/2 w-[3px] bg-imagic-yellow rounded-full"></span>
+              <span class="svc-num font-mono font-bold transition-all duration-300 w-12 sm:w-16 shrink-0 text-xl sm:text-2xl text-burgundy/30">03</span>
+              <div class="flex-1 min-w-0">
+                <h3 class="svc-title font-display font-bold text-xl sm:text-2xl lg:text-3xl transition-colors duration-300 text-burgundy/60 group-hover:text-burgundy">UI/UX Design</h3>
+                <p class="svc-desc text-sm sm:text-base text-charcoal/60 mt-2 max-w-lg hidden">Interfaces that feel effortless — research-driven, accessible and beautiful.</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svc-arrow w-5 h-5 sm:w-6 sm:h-6 shrink-0 transition-all duration-300 text-burgundy/20 -translate-x-2 opacity-0 group-hover:opacity-60"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+          <div class="group border-b border-burgundy/10 svc-row" data-panel="3">
+            <a href="#services" class="flex items-center gap-5 sm:gap-8 py-6 sm:py-7 relative overflow-hidden">
+              <span class="svc-bar absolute left-0 top-1/2 -translate-y-1/2 w-[3px] bg-imagic-yellow rounded-full"></span>
+              <span class="svc-num font-mono font-bold transition-all duration-300 w-12 sm:w-16 shrink-0 text-xl sm:text-2xl text-burgundy/30">04</span>
+              <div class="flex-1 min-w-0">
+                <h3 class="svc-title font-display font-bold text-xl sm:text-2xl lg:text-3xl transition-colors duration-300 text-burgundy/60 group-hover:text-burgundy">Video Editing</h3>
+                <p class="svc-desc text-sm sm:text-base text-charcoal/60 mt-2 max-w-lg hidden">Cinematic edits, motion graphics and content that moves people.</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svc-arrow w-5 h-5 sm:w-6 sm:h-6 shrink-0 transition-all duration-300 text-burgundy/20 -translate-x-2 opacity-0 group-hover:opacity-60"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+          <div class="group border-b border-burgundy/10 svc-row" data-panel="4">
+            <a href="#services" class="flex items-center gap-5 sm:gap-8 py-6 sm:py-7 relative overflow-hidden">
+              <span class="svc-bar absolute left-0 top-1/2 -translate-y-1/2 w-[3px] bg-imagic-yellow rounded-full"></span>
+              <span class="svc-num font-mono font-bold transition-all duration-300 w-12 sm:w-16 shrink-0 text-xl sm:text-2xl text-burgundy/30">05</span>
+              <div class="flex-1 min-w-0">
+                <h3 class="svc-title font-display font-bold text-xl sm:text-2xl lg:text-3xl transition-colors duration-300 text-burgundy/60 group-hover:text-burgundy">SEO &amp; Digital Marketing</h3>
+                <p class="svc-desc text-sm sm:text-base text-charcoal/60 mt-2 max-w-lg hidden">Data-driven growth — search, content, ads and analytics that compound.</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svc-arrow w-5 h-5 sm:w-6 sm:h-6 shrink-0 transition-all duration-300 text-burgundy/20 -translate-x-2 opacity-0 group-hover:opacity-60"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+          <div class="group border-b border-burgundy/10 svc-row" data-panel="5">
+            <a href="#services" class="flex items-center gap-5 sm:gap-8 py-6 sm:py-7 relative overflow-hidden">
+              <span class="svc-bar absolute left-0 top-1/2 -translate-y-1/2 w-[3px] bg-imagic-yellow rounded-full"></span>
+              <span class="svc-num font-mono font-bold transition-all duration-300 w-12 sm:w-16 shrink-0 text-xl sm:text-2xl text-burgundy/30">06</span>
+              <div class="flex-1 min-w-0">
+                <h3 class="svc-title font-display font-bold text-xl sm:text-2xl lg:text-3xl transition-colors duration-300 text-burgundy/60 group-hover:text-burgundy">Brand Building</h3>
+                <p class="svc-desc text-sm sm:text-base text-charcoal/60 mt-2 max-w-lg hidden">Identities with meaning — strategy, visual systems and logic to it.</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svc-arrow w-5 h-5 sm:w-6 sm:h-6 shrink-0 transition-all duration-300 text-burgundy/20 -translate-x-2 opacity-0 group-hover:opacity-60"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+          <div class="group border-b border-burgundy/10 svc-row" data-panel="6">
+            <a href="#services" class="flex items-center gap-5 sm:gap-8 py-6 sm:py-7 relative overflow-hidden">
+              <span class="svc-bar absolute left-0 top-1/2 -translate-y-1/2 w-[3px] bg-imagic-yellow rounded-full"></span>
+              <span class="svc-num font-mono font-bold transition-all duration-300 w-12 sm:w-16 shrink-0 text-xl sm:text-2xl text-burgundy/30">07</span>
+              <div class="flex-1 min-w-0">
+                <h3 class="svc-title font-display font-bold text-xl sm:text-2xl lg:text-3xl transition-colors duration-300 text-burgundy/60 group-hover:text-burgundy">Data Security</h3>
+                <p class="svc-desc text-sm sm:text-base text-charcoal/60 mt-2 max-w-lg hidden">Protection by design — audits, hardening and continuous monitoring.</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svc-arrow w-5 h-5 sm:w-6 sm:h-6 shrink-0 transition-all duration-300 text-burgundy/20 -translate-x-2 opacity-0 group-hover:opacity-60"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="col-lg-7 reveal-up" data-reveal>
-        <div class="why-grid">
-          <div class="why-item">
-            <h4>Business-focused approach</h4>
-            <p>We start with your goals, not just the technology.</p>
+      <div class="lg:col-span-5 hidden lg:block">
+        <div class="sticky top-28">
+          <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-burgundy/5">
+            <div class="absolute inset-0" id="svcPanelImgWrap">
+              <img id="svcPanelImg" src="assets/images/code-network.jpg" loading="lazy" class="w-full h-full object-cover transition-opacity duration-500" alt="Web &amp; Software Development">
+              <div class="absolute inset-0 bg-gradient-to-t from-burgundy/70 via-burgundy/10 to-transparent"></div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 p-7">
+              <span class="text-xs font-mono font-semibold text-imagic-yellow" id="svcPanelNum">01</span>
+              <h4 class="font-display font-extrabold text-ivory text-2xl mt-1" id="svcPanelTitle">Web &amp; Software Development</h4>
+              <div class="mt-3 flex flex-wrap gap-2" id="svcPanelTags">
+                <span class="text-[0.7rem] font-medium px-2.5 py-1 rounded-full glass-dark text-ivory/90">Custom Web Applications</span>
+                <span class="text-[0.7rem] font-medium px-2.5 py-1 rounded-full glass-dark text-ivory/90">SaaS Platform Development</span>
+                <span class="text-[0.7rem] font-medium px-2.5 py-1 rounded-full glass-dark text-ivory/90">API &amp; Integrations</span>
+              </div>
+            </div>
           </div>
-          <div class="why-item">
-            <h4>Custom solutions</h4>
-            <p>Nothing off-the-shelf. Built precisely for the context.</p>
+          <a class="mt-5 inline-flex items-center gap-2 font-semibold text-burgundy hover:gap-3 transition-all" href="#services" id="svcPanelLink">
+            Explore Web &amp; Software Development
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DARK SHOWCASE ==================== -->
+<section class="py-24 lg:py-32 bg-burgundy text-ivory overflow-hidden relative">
+  <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-imagic-yellow/10 blur-[120px] pointer-events-none"></div>
+  <div class="mx-auto max-w-1440 px-5 sm:px-8 relative">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5">
+        <div data-reveal>
+          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-yellow mb-5">Featured Service</p>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-balance">Build digital experiences that work.</h2>
+        </div>
+        <div data-reveal>
+          <p class="mt-6 text-ivory/70 text-lg leading-relaxed max-w-md">From websites to mobile apps, dashboards to custom software — we craft interfaces that feel effortless and systems that perform under pressure.</p>
+        </div>
+        <div data-reveal>
+          <div class="mt-8 space-y-3">
+            <div class="flex items-center gap-3"><span class="font-mono text-xs text-imagic-yellow w-6">01</span><span class="text-ivory/80">Website UI</span></div>
+            <div class="flex items-center gap-3"><span class="font-mono text-xs text-imagic-yellow w-6">02</span><span class="text-ivory/80">Mobile interface</span></div>
+            <div class="flex items-center gap-3"><span class="font-mono text-xs text-imagic-yellow w-6">03</span><span class="text-ivory/80">Dashboard</span></div>
+            <div class="flex items-center gap-3"><span class="font-mono text-xs text-imagic-yellow w-6">04</span><span class="text-ivory/80">Software interface</span></div>
           </div>
-          <div class="why-item">
-            <h4>Creative + technical expertise</h4>
-            <p>Designers and engineers in one room, from day one.</p>
+        </div>
+        <div data-reveal>
+          <a class="mt-9 inline-flex items-center gap-2 bg-imagic-yellow text-charcoal px-6 py-3 rounded-full font-semibold text-sm hover:bg-imagic-gold transition-colors" href="#services">
+            Explore Web &amp; Software
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-7 relative">
+        <div data-reveal>
+          <div class="relative aspect-[16/11] rounded-3xl overflow-hidden">
+            <img src="assets/images/device-mockups.jpg" loading="lazy" class="w-full h-full object-cover" alt="Layered UI mockups">
           </div>
-          <div class="why-item">
-            <h4>Scalable development</h4>
-            <p>Architecture that grows without needing to be rewritten.</p>
-          </div>
-          <div class="why-item">
-            <h4>Transparent communication</h4>
-            <p>Clear timelines, honest progress, no surprises.</p>
-          </div>
-          <div class="why-item">
-            <h4>Long-term support</h4>
-            <p>We stay after launch — iteration is where results compound.</p>
-          </div>
+        </div>
+        <div class="float-card absolute top-8 left-6 sm:top-12 sm:left-12 glass-dark rounded-xl px-3.5 py-2 shadow-lg hidden sm:block">
+          <span class="text-xs font-semibold text-ivory/90">Website UI</span>
+        </div>
+        <div class="float-card absolute top-1/3 right-4 sm:right-10 glass-dark rounded-xl px-3.5 py-2 shadow-lg hidden sm:block">
+          <span class="text-xs font-semibold text-ivory/90">Mobile</span>
+        </div>
+        <div class="float-card absolute bottom-20 left-4 sm:left-10 glass-dark rounded-xl px-3.5 py-2 shadow-lg hidden sm:block">
+          <span class="text-xs font-semibold text-ivory/90">Dashboard</span>
+        </div>
+        <div class="float-card absolute bottom-8 right-8 sm:right-14 glass-dark rounded-xl px-3.5 py-2 shadow-lg hidden sm:block">
+          <span class="text-xs font-semibold text-ivory/90">Software</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHY IMAGIC ==================== -->
+<section class="py-24 lg:py-32">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-5">
+        <div data-reveal>
+          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-gold mb-5">Why Imagic</p>
+          <h2 class="font-display font-extrabold text-burgundy text-3xl sm:text-4xl lg:text-5xl leading-[1.08] tracking-tight text-balance">More than a service provider.<br><span class="text-burgundy/40">Your technology partner.</span></h2>
+        </div>
+      </div>
+      <div class="lg:col-span-7">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7">
+          <div data-reveal><div class="flex gap-4"><span class="font-mono text-sm font-bold text-imagic-yellow shrink-0 mt-1">01</span><div><h3 class="font-display font-bold text-lg text-burgundy">Business-focused approach</h3><p class="text-sm text-charcoal/60 mt-1.5 leading-relaxed">We start with your goals, not just the technology.</p></div></div></div>
+          <div data-reveal><div class="flex gap-4"><span class="font-mono text-sm font-bold text-imagic-yellow shrink-0 mt-1">02</span><div><h3 class="font-display font-bold text-lg text-burgundy">Custom solutions</h3><p class="text-sm text-charcoal/60 mt-1.5 leading-relaxed">Nothing off-the-shelf. Built precisely for your context.</p></div></div></div>
+          <div data-reveal><div class="flex gap-4"><span class="font-mono text-sm font-bold text-imagic-yellow shrink-0 mt-1">03</span><div><h3 class="font-display font-bold text-lg text-burgundy">Creative + technical expertise</h3><p class="text-sm text-charcoal/60 mt-1.5 leading-relaxed">Designers and engineers in one room, one mind.</p></div></div></div>
+          <div data-reveal><div class="flex gap-4"><span class="font-mono text-sm font-bold text-imagic-yellow shrink-0 mt-1">04</span><div><h3 class="font-display font-bold text-lg text-burgundy">Scalable development</h3><p class="text-sm text-charcoal/60 mt-1.5 leading-relaxed">Architectures that grow without rewrites.</p></div></div></div>
+          <div data-reveal><div class="flex gap-4"><span class="font-mono text-sm font-bold text-imagic-yellow shrink-0 mt-1">05</span><div><h3 class="font-display font-bold text-lg text-burgundy">Transparent communication</h3><p class="text-sm text-charcoal/60 mt-1.5 leading-relaxed">Clear timelines, honest progress, no surprises.</p></div></div></div>
+          <div data-reveal><div class="flex gap-4"><span class="font-mono text-sm font-bold text-imagic-yellow shrink-0 mt-1">06</span><div><h3 class="font-display font-bold text-lg text-burgundy">Long-term support</h3><p class="text-sm text-charcoal/60 mt-1.5 leading-relaxed">We stay after launch — iteration is the product.</p></div></div></div>
         </div>
       </div>
     </div>
@@ -321,304 +444,389 @@
 </section>
 
 <!-- ==================== PROCESS ==================== -->
-<section class="section section-tight" id="process">
-  <div class="container-xl-custom">
-    <span class="eyebrow reveal-up" data-reveal>Our Process</span>
-    <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem)">From idea to execution.</h2>
+<section class="py-24 lg:py-32 bg-cream/40 border-y border-burgundy/10">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8">
+    <div data-reveal>
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-gold mb-5">Our Process</p>
+      <h2 class="font-display font-extrabold text-burgundy text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-balance">From idea to execution.</h2>
+    </div>
 
-    <div class="process-track">
-      <div class="process-step reveal-up" data-reveal data-process>
-        <div class="dot">01</div>
-        <h4>Discover</h4>
-        <p>We dig into your business, users and goals to find the real problem worth solving.</p>
+    <div class="mt-16 hidden lg:block relative">
+      <div class="absolute top-7 left-0 right-0 h-px bg-burgundy/15"></div>
+      <div class="grid grid-cols-6 gap-4">
+        <div class="relative" data-reveal data-process>
+          <div class="flex flex-col items-start">
+            <div class="dot w-14 h-14 rounded-full bg-ivory border-2 border-burgundy/15 flex items-center justify-center font-mono font-bold text-burgundy relative z-10"><span class="text-imagic-yellow text-sm">01</span></div>
+            <h3 class="mt-5 font-display font-bold text-lg text-burgundy">Discover</h3>
+            <p class="mt-2 text-sm text-charcoal/60 leading-relaxed">We dig into your business, users and goals to find the real problem worth solving.</p>
+          </div>
+        </div>
+        <div class="relative" data-reveal data-process>
+          <div class="flex flex-col items-start">
+            <div class="dot w-14 h-14 rounded-full bg-ivory border-2 border-burgundy/15 flex items-center justify-center font-mono font-bold text-burgundy relative z-10"><span class="text-imagic-yellow text-sm">02</span></div>
+            <h3 class="mt-5 font-display font-bold text-lg text-burgundy">Strategy</h3>
+            <p class="mt-2 text-sm text-charcoal/60 leading-relaxed">We define the roadmap, scope and architecture — the plan that makes the rest predictable.</p>
+          </div>
+        </div>
+        <div class="relative" data-reveal data-process>
+          <div class="flex flex-col items-start">
+            <div class="dot w-14 h-14 rounded-full bg-ivory border-2 border-burgundy/15 flex items-center justify-center font-mono font-bold text-burgundy relative z-10"><span class="text-imagic-yellow text-sm">03</span></div>
+            <h3 class="mt-5 font-display font-bold text-lg text-burgundy">Design</h3>
+            <p class="mt-2 text-sm text-charcoal/60 leading-relaxed">We design the experience and interface, validated through prototypes before a line of code.</p>
+          </div>
+        </div>
+        <div class="relative" data-reveal data-process>
+          <div class="flex flex-col items-start">
+            <div class="dot w-14 h-14 rounded-full bg-ivory border-2 border-burgundy/15 flex items-center justify-center font-mono font-bold text-burgundy relative z-10"><span class="text-imagic-yellow text-sm">04</span></div>
+            <h3 class="mt-5 font-display font-bold text-lg text-burgundy">Develop</h3>
+            <p class="mt-2 text-sm text-charcoal/60 leading-relaxed">We build in iterations with weekly demos — you see progress, not promises.</p>
+          </div>
+        </div>
+        <div class="relative" data-reveal data-process>
+          <div class="flex flex-col items-start">
+            <div class="dot w-14 h-14 rounded-full bg-ivory border-2 border-burgundy/15 flex items-center justify-center font-mono font-bold text-burgundy relative z-10"><span class="text-imagic-yellow text-sm">05</span></div>
+            <h3 class="mt-5 font-display font-bold text-lg text-burgundy">Launch</h3>
+            <p class="mt-2 text-sm text-charcoal/60 leading-relaxed">We ship with confidence — tested, documented and ready for real users.</p>
+          </div>
+        </div>
+        <div class="relative" data-reveal data-process>
+          <div class="flex flex-col items-start">
+            <div class="dot w-14 h-14 rounded-full bg-ivory border-2 border-burgundy/15 flex items-center justify-center font-mono font-bold text-burgundy relative z-10"><span class="text-imagic-yellow text-sm">06</span></div>
+            <h3 class="mt-5 font-display font-bold text-lg text-burgundy">Support</h3>
+            <p class="mt-2 text-sm text-charcoal/60 leading-relaxed">We stay — monitoring, iterating and improving long after launch day.</p>
+          </div>
+        </div>
       </div>
-      <div class="process-step reveal-up" data-reveal data-process>
-        <div class="dot">02</div>
-        <h4>Strategy</h4>
-        <p>We define the roadmap, scope and architecture before a single line is written.</p>
-      </div>
-      <div class="process-step reveal-up" data-reveal data-process>
-        <div class="dot">03</div>
-        <h4>Design</h4>
-        <p>We shape the experience and interface, tested with real users before it builds.</p>
-      </div>
-      <div class="process-step reveal-up" data-reveal data-process>
-        <div class="dot">04</div>
-        <h4>Develop</h4>
-        <p>We build in iterations, validated weekly demos — you see progress, not promises.</p>
-      </div>
-      <div class="process-step reveal-up" data-reveal data-process>
-        <div class="dot">05</div>
-        <h4>Launch</h4>
-        <p>We ship with confidence — tested, documented and ready for real users.</p>
-      </div>
-      <div class="process-step reveal-up" data-reveal data-process>
-        <div class="dot">06</div>
-        <h4>Support</h4>
-        <p>We stay on — monitoring, iterating and improving long after launch.</p>
+    </div>
+
+    <div class="mt-12 lg:hidden relative pl-8">
+      <div class="absolute left-3 top-2 bottom-2 w-px bg-burgundy/15"></div>
+      <div class="space-y-8">
+        <div data-reveal><div class="relative"><div class="absolute -left-[1.65rem] top-0 w-6 h-6 rounded-full bg-ivory border-2 border-imagic-yellow flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-imagic-yellow"></span></div><div class="flex items-center gap-3"><span class="font-mono font-bold text-imagic-yellow text-sm">01</span><h3 class="font-display font-bold text-lg text-burgundy">Discover</h3></div><p class="mt-1.5 text-sm text-charcoal/60 leading-relaxed">We dig into your business, users and goals to find the real problem worth solving.</p></div></div>
+        <div data-reveal><div class="relative"><div class="absolute -left-[1.65rem] top-0 w-6 h-6 rounded-full bg-ivory border-2 border-imagic-yellow flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-imagic-yellow"></span></div><div class="flex items-center gap-3"><span class="font-mono font-bold text-imagic-yellow text-sm">02</span><h3 class="font-display font-bold text-lg text-burgundy">Strategy</h3></div><p class="mt-1.5 text-sm text-charcoal/60 leading-relaxed">We define the roadmap, scope and architecture — the plan that makes the rest predictable.</p></div></div>
+        <div data-reveal><div class="relative"><div class="absolute -left-[1.65rem] top-0 w-6 h-6 rounded-full bg-ivory border-2 border-imagic-yellow flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-imagic-yellow"></span></div><div class="flex items-center gap-3"><span class="font-mono font-bold text-imagic-yellow text-sm">03</span><h3 class="font-display font-bold text-lg text-burgundy">Design</h3></div><p class="mt-1.5 text-sm text-charcoal/60 leading-relaxed">We design the experience and interface, validated through prototypes before a line of code.</p></div></div>
+        <div data-reveal><div class="relative"><div class="absolute -left-[1.65rem] top-0 w-6 h-6 rounded-full bg-ivory border-2 border-imagic-yellow flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-imagic-yellow"></span></div><div class="flex items-center gap-3"><span class="font-mono font-bold text-imagic-yellow text-sm">04</span><h3 class="font-display font-bold text-lg text-burgundy">Develop</h3></div><p class="mt-1.5 text-sm text-charcoal/60 leading-relaxed">We build in iterations with weekly demos — you see progress, not promises.</p></div></div>
+        <div data-reveal><div class="relative"><div class="absolute -left-[1.65rem] top-0 w-6 h-6 rounded-full bg-ivory border-2 border-imagic-yellow flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-imagic-yellow"></span></div><div class="flex items-center gap-3"><span class="font-mono font-bold text-imagic-yellow text-sm">05</span><h3 class="font-display font-bold text-lg text-burgundy">Launch</h3></div><p class="mt-1.5 text-sm text-charcoal/60 leading-relaxed">We ship with confidence — tested, documented and ready for real users.</p></div></div>
+        <div data-reveal><div class="relative"><div class="absolute -left-[1.65rem] top-0 w-6 h-6 rounded-full bg-ivory border-2 border-imagic-yellow flex items-center justify-center"><span class="w-2 h-2 rounded-full bg-imagic-yellow"></span></div><div class="flex items-center gap-3"><span class="font-mono font-bold text-imagic-yellow text-sm">06</span><h3 class="font-display font-bold text-lg text-burgundy">Support</h3></div><p class="mt-1.5 text-sm text-charcoal/60 leading-relaxed">We stay — monitoring, iterating and improving long after launch day.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==================== PORTFOLIO ==================== -->
-<section class="section" id="portfolio">
-  <div class="container-xl-custom">
-    <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 reveal-up" data-reveal>
-      <div>
-        <span class="eyebrow">Selected Work</span>
-        <h2 style="font-size:clamp(2rem,3.6vw,2.8rem)">Work that speaks for itself.</h2>
+<section id="portfolio" class="py-24 lg:py-32">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+      <div data-reveal>
+        <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-gold mb-5">Selected Work</p>
+        <h2 class="font-display font-extrabold text-burgundy text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-balance">Work that speaks for itself.</h2>
       </div>
-      <a href="#portfolio" class="about-link">View all projects <span>&rarr;</span></a>
+      <div data-reveal>
+        <a class="inline-flex items-center gap-2 font-semibold text-burgundy hover:gap-3 transition-all" href="#portfolio">
+          View all projects
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
+      </div>
     </div>
 
-    <div class="portfolio-grid reveal-up" data-reveal>
-      <a href="#portfolio" class="portfolio-card">
-        <img src="assets/images/device-mockups.jpg" alt="Lumen Health App project">
-        <div class="portfolio-info">
-          <span class="cat">Product Development &middot; UI/UX</span>
-          <h4>Lumen Health App</h4>
-          <a href="#portfolio">View Case Study &rarr;</a>
+    <div class="grid grid-cols-1 sm:grid-cols-4 auto-rows-[220px] sm:auto-rows-[260px] gap-4">
+      <div class="relative group rounded-2xl overflow-hidden sm:col-span-2 sm:row-span-2" data-reveal>
+        <img src="assets/images/device-mockups.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Northwind Finance Platform">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/85 via-burgundy/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+        <div class="absolute inset-0 p-5 flex flex-col justify-end text-ivory translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+          <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-1">Fintech &bull; Web &amp; Software Development</span>
+          <h3 class="font-display font-bold text-lg sm:text-xl leading-tight">Northwind Finance Platform</h3>
+          <div class="overflow-hidden max-h-0 group-hover:max-h-20 transition-all duration-500">
+            <p class="text-sm text-ivory/70 mt-2">+180% faster onboarding</p>
+            <span class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-imagic-yellow">View Case Study
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+          </div>
         </div>
-      </a>
-      <a href="#portfolio" class="portfolio-card small wide">
-        <img src="assets/images/code-network.jpg" alt="Northwind Finance Platform project">
-        <div class="portfolio-info">
-          <span class="cat">Web &amp; Software Development</span>
-          <h4>Northwind Finance Platform</h4>
-          <a href="#portfolio">View Case Study &rarr;</a>
+      </div>
+      <div class="relative group rounded-2xl overflow-hidden sm:col-span-1" data-reveal>
+        <img src="assets/images/code-network.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Lumen Health App">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/85 via-burgundy/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+        <div class="absolute inset-0 p-5 flex flex-col justify-end text-ivory translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+          <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-1">Healthtech &bull; Product Development</span>
+          <h3 class="font-display font-bold text-lg sm:text-xl leading-tight">Lumen Health App</h3>
+          <div class="overflow-hidden max-h-0 group-hover:max-h-20 transition-all duration-500">
+            <p class="text-sm text-ivory/70 mt-2">120k+ active users</p>
+            <span class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-imagic-yellow">View Case Study
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+          </div>
         </div>
-      </a>
-      <a href="#portfolio" class="portfolio-card small">
-        <img src="assets/images/dashboard-cube.jpg" alt="Atlas Analytics Dashboard project">
-        <div class="portfolio-info">
-          <span class="cat">Product Development</span>
-          <h4>Atlas Analytics Dashboard</h4>
-          <a href="#portfolio">View Case Study &rarr;</a>
+      </div>
+      <div class="relative group rounded-2xl overflow-hidden sm:col-span-2" data-reveal>
+        <img src="assets/images/silk-ribbon.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Atlas Analytics Dashboard">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/85 via-burgundy/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+        <div class="absolute inset-0 p-5 flex flex-col justify-end text-ivory translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+          <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-1">SaaS &bull; UI/UX Design</span>
+          <h3 class="font-display font-bold text-lg sm:text-xl leading-tight">Atlas Analytics Dashboard</h3>
+          <div class="overflow-hidden max-h-0 group-hover:max-h-20 transition-all duration-500">
+            <p class="text-sm text-ivory/70 mt-2">-40% support tickets</p>
+            <span class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-imagic-yellow">View Case Study
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+          </div>
         </div>
-      </a>
-      <a href="#portfolio" class="portfolio-card small">
-        <img src="assets/images/silk-ribbon.jpg" alt="Verde Identity System project">
-        <div class="portfolio-info">
-          <span class="cat">Brand Building</span>
-          <h4>Verde Identity System</h4>
-          <a href="#portfolio">View Case Study &rarr;</a>
+      </div>
+      <div class="relative group rounded-2xl overflow-hidden sm:col-span-1" data-reveal>
+        <img src="assets/images/glass-macro.webp" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Verde Identity System">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/85 via-burgundy/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+        <div class="absolute inset-0 p-5 flex flex-col justify-end text-ivory translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+          <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-1">Sustainability &bull; Brand Building</span>
+          <h3 class="font-display font-bold text-lg sm:text-xl leading-tight">Verde Identity System</h3>
+          <div class="overflow-hidden max-h-0 group-hover:max-h-20 transition-all duration-500">
+            <p class="text-sm text-ivory/70 mt-2">Launch-ready in 6 weeks</p>
+            <span class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-imagic-yellow">View Case Study
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+          </div>
         </div>
-      </a>
-      <a href="#portfolio" class="portfolio-card small">
-        <img src="assets/images/glass-macro.webp" alt="Pulse Growth Campaign project">
-        <div class="portfolio-info">
-          <span class="cat">SEO &amp; Digital Marketing</span>
-          <h4>Pulse Growth Campaign</h4>
-          <a href="#portfolio">View Case Study &rarr;</a>
+      </div>
+      <div class="relative group rounded-2xl overflow-hidden sm:col-span-2" data-reveal>
+        <img src="assets/images/security-shield.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Pulse Growth Campaign">
+        <div class="absolute inset-0 bg-gradient-to-t from-burgundy/85 via-burgundy/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+        <div class="absolute inset-0 p-5 flex flex-col justify-end text-ivory translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+          <span class="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-imagic-yellow mb-1">E-commerce &bull; SEO &amp; Digital Marketing</span>
+          <h3 class="font-display font-bold text-lg sm:text-xl leading-tight">Pulse Growth Campaign</h3>
+          <div class="overflow-hidden max-h-0 group-hover:max-h-20 transition-all duration-500">
+            <p class="text-sm text-ivory/70 mt-2">+60% organic traffic</p>
+            <span class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-imagic-yellow">View Case Study
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+            </span>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== RESULTS / METRICS ==================== -->
-<section class="section section-dark" id="results">
-  <div class="container-xl-custom">
-    <span class="eyebrow reveal-up" data-reveal>Results &amp; Impact</span>
-    <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem)">Built to create measurable impact.</h2>
-
-    <div class="result-strip">
-      <div class="result-item reveal-up" data-reveal>
-        <div class="num">+<span data-count-to="45">0</span>%</div>
-        <div class="lbl">Business Efficiency</div>
-        <div class="sub">Average across engagements</div>
+<!-- ==================== RESULTS ==================== -->
+<section id="results" class="py-24 lg:py-32 bg-burgundy text-ivory relative overflow-hidden">
+  <div class="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-imagic-yellow/10 blur-[120px] pointer-events-none"></div>
+  <div class="mx-auto max-w-1440 px-5 sm:px-8 relative">
+    <div data-reveal>
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-yellow mb-5">Results &amp; Impact</p>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight max-w-2xl text-balance">Built to create measurable impact.</h2>
+    </div>
+    <div class="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+      <div class="border-t border-ivory/15 pt-6" data-reveal>
+        <div class="font-display font-extrabold text-5xl lg:text-6xl tracking-tight">+<span data-count-to="45">0</span>%</div>
+        <div class="mt-3 font-display font-bold text-lg text-ivory">Business Efficiency</div>
+        <div class="mt-1 text-sm text-ivory/50">Average across engagements</div>
       </div>
-      <div class="result-item reveal-up" data-reveal>
-        <div class="num">+<span data-count-to="60">0</span>%</div>
-        <div class="lbl">Digital Engagement</div>
-        <div class="sub">For marketing clients</div>
+      <div class="border-t border-ivory/15 pt-6" data-reveal>
+        <div class="font-display font-extrabold text-5xl lg:text-6xl tracking-tight">+<span data-count-to="60">0</span>%</div>
+        <div class="mt-3 font-display font-bold text-lg text-ivory">Digital Engagement</div>
+        <div class="mt-1 text-sm text-ivory/50">For marketing clients</div>
       </div>
-      <div class="result-item reveal-up" data-reveal>
-        <div class="num">&minus;<span data-count-to="35">0</span>%</div>
-        <div class="lbl">Manual Processes</div>
-        <div class="sub">Removed through automation</div>
+      <div class="border-t border-ivory/15 pt-6" data-reveal>
+        <div class="font-display font-extrabold text-5xl lg:text-6xl tracking-tight">&minus;<span data-count-to="35">0</span>%</div>
+        <div class="mt-3 font-display font-bold text-lg text-ivory">Manual Processes</div>
+        <div class="mt-1 text-sm text-ivory/50">Removed through automation</div>
       </div>
-      <div class="result-item reveal-up" data-reveal>
-        <div class="num"><span data-count-to="2">0</span>X</div>
-        <div class="lbl">Faster Operations</div>
-        <div class="sub">After platform rebuild</div>
+      <div class="border-t border-ivory/15 pt-6" data-reveal>
+        <div class="font-display font-extrabold text-5xl lg:text-6xl tracking-tight"><span data-count-to="2">0</span><span class="text-imagic-yellow">X</span></div>
+        <div class="mt-3 font-display font-bold text-lg text-ivory">Faster Operations</div>
+        <div class="mt-1 text-sm text-ivory/50">After platform rebuilds</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==================== TESTIMONIALS ==================== -->
-<section class="section" id="testimonials">
-  <div class="container-xl-custom text-center">
-    <span class="eyebrow reveal-up" data-reveal>Client Stories</span>
-    <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem)">Trusted by teams that build to last.</h2>
-
-    <div class="testi-wrap reveal-up" data-reveal id="testiWrap">
-      <div class="testi-slide active">
-        <div class="testi-quote-mark">&ldquo;</div>
-        <p class="testi-quote">The redesign paid for itself in months. Support tickets dropped and our customers finally say the product feels effortless.</p>
-        <div class="testi-author justify-content-center">
-          <div class="testi-avatar">ER</div>
-          <div class="text-start">
-            <div class="testi-name">Elena Rossi</div>
-            <div class="testi-role">Head of Product, Atlas Reef</div>
+<section id="testimonials" class="py-24 lg:py-32 bg-cream/40 border-y border-burgundy/10">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8">
+    <div data-reveal>
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-gold mb-5">Client Stories</p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-imagic-yellow"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+      </div>
+      <div class="lg:col-span-8">
+        <div id="testiContent">
+          <blockquote id="testiQuote" class="font-display font-bold text-burgundy text-2xl sm:text-3xl lg:text-4xl leading-[1.25] tracking-tight text-balance">&ldquo;They grew our organic traffic by sixty percent in two quarters — with a strategy we could actually sustain ourselves.&rdquo;</blockquote>
+          <div class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-1">
+            <span class="font-display font-bold text-burgundy" id="testiName">David Park</span>
+            <span class="text-charcoal/40">&bull;</span>
+            <span class="text-sm text-charcoal/60" id="testiRole">Marketing Director, Pulse Commerce</span>
           </div>
+          <span class="mt-2 inline-block text-xs font-semibold tracking-[0.15em] uppercase text-imagic-yellow" id="testiTag">SEO &amp; Digital Marketing</span>
         </div>
       </div>
-      <div class="testi-slide">
-        <div class="testi-quote-mark">&ldquo;</div>
-        <p class="testi-quote">They grew our organic traffic by sixty percent in two quarters — with a strategy we could actually sustain ourselves.</p>
-        <div class="testi-author justify-content-center">
-          <div class="testi-avatar">DP</div>
-          <div class="text-start">
-            <div class="testi-name">David Park</div>
-            <div class="testi-role">Marketing Director, Pulse Commerce</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-slide">
-        <div class="testi-quote-mark">&ldquo;</div>
-        <p class="testi-quote">IMAGIC didn't just build our platform — they understood the business behind it. The result felt like it was always meant to exist.</p>
-        <div class="testi-author justify-content-center">
-          <div class="testi-avatar">SC</div>
-          <div class="text-start">
-            <div class="testi-name">Sarah Chen</div>
-            <div class="testi-role">Chief Product Officer, Northwind Finance</div>
-          </div>
-        </div>
+      <div class="lg:col-span-2 flex lg:flex-col gap-3 lg:justify-end">
+        <button id="testiPrev" class="w-11 h-11 rounded-full border border-burgundy/20 flex items-center justify-center text-burgundy hover:bg-burgundy hover:text-ivory transition-colors" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+        </button>
+        <button id="testiNext" class="w-11 h-11 rounded-full border border-burgundy/20 flex items-center justify-center text-burgundy hover:bg-burgundy hover:text-ivory transition-colors" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </button>
       </div>
     </div>
-    <div class="testi-dots" id="testiDots">
-      <button class="active" data-slide="0" aria-label="Testimonial 1"></button>
-      <button data-slide="1" aria-label="Testimonial 2"></button>
-      <button data-slide="2" aria-label="Testimonial 3"></button>
-    </div>
+    <div class="mt-10 flex gap-2" id="testiDots"></div>
   </div>
 </section>
 
-<!-- ==================== INSIGHTS / BLOG ==================== -->
-<section class="section" id="insights">
-  <div class="container-xl-custom">
-    <span class="eyebrow reveal-up" data-reveal>Insights</span>
-    <h2 class="reveal-up" data-reveal style="font-size:clamp(2rem,3.6vw,2.8rem)">Thoughts on technology and growth.</h2>
-
-    <div class="row g-4 mt-2">
-      <div class="col-lg-3 col-sm-6 reveal-up" data-reveal>
-        <div class="insight-card">
-          <span class="insight-cat">Design</span>
-          <h4>Design systems that scale with your product</h4>
-          <p>How a disciplined system turns a growing product into one clarity — not scattered patchwork.</p>
-          <a href="#insights" class="insight-read">Read article &rarr;</a>
-        </div>
+<!-- ==================== INSIGHTS ==================== -->
+<section id="insights" class="py-24 lg:py-32">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+      <div data-reveal>
+        <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-gold mb-5">Insights</p>
+        <h2 class="font-display font-extrabold text-burgundy text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-balance">Thoughts on technology and growth.</h2>
       </div>
-      <div class="col-lg-3 col-sm-6 reveal-up" data-reveal>
-        <div class="insight-card">
-          <span class="insight-cat">Technology</span>
-          <h4>The case for composable software architecture</h4>
-          <p>Why building in independent, replaceable pieces is the resilient way to grow a product.</p>
-          <a href="#insights" class="insight-read">Read article &rarr;</a>
-        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div data-reveal>
+        <a class="group block h-full rounded-2xl border border-burgundy/10 bg-ivory p-6 hover:border-burgundy/25 hover:shadow-lg transition-all duration-300" href="#contact">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-xs font-semibold tracking-[0.12em] uppercase text-imagic-yellow">Design</span>
+            <span class="text-xs text-charcoal/40">6 min read</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-burgundy leading-snug group-hover:text-burgundy-light transition-colors">Design systems that scale with your product</h3>
+          <p class="mt-3 text-sm text-charcoal/60 leading-relaxed">How a disciplined design system turns a growing product from chaos into clarity — and saves your team months.</p>
+          <div class="mt-5 flex items-center gap-1.5 text-sm font-semibold text-burgundy">Read article
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </div>
+        </a>
       </div>
-      <div class="col-lg-3 col-sm-6 reveal-up" data-reveal>
-        <div class="insight-card">
-          <span class="insight-cat">Marketing</span>
-          <h4>Treating SEO as a product, not a channel</h4>
-          <p>What search-driven growth demands when it becomes a compounding asset for aging content.</p>
-          <a href="#insights" class="insight-read">Read article &rarr;</a>
-        </div>
+      <div data-reveal>
+        <a class="group block h-full rounded-2xl border border-burgundy/10 bg-ivory p-6 hover:border-burgundy/25 hover:shadow-lg transition-all duration-300" href="#contact">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-xs font-semibold tracking-[0.12em] uppercase text-imagic-yellow">Technology</span>
+            <span class="text-xs text-charcoal/40">8 min read</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-burgundy leading-snug group-hover:text-burgundy-light transition-colors">The case for composable software architecture</h3>
+          <p class="mt-3 text-sm text-charcoal/60 leading-relaxed">Why building in independent, replaceable pieces is the most resilient way to grow a digital product.</p>
+          <div class="mt-5 flex items-center gap-1.5 text-sm font-semibold text-burgundy">Read article
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </div>
+        </a>
       </div>
-      <div class="col-lg-3 col-sm-6 reveal-up" data-reveal>
-        <div class="insight-card">
-          <span class="insight-cat">Data Security</span>
-          <h4>Security by design: the cheapest fix is early</h4>
-          <p>Why baking security into the architecture costs a fraction of bolting it on after a breach.</p>
-          <a href="#insights" class="insight-read">Read article &rarr;</a>
-        </div>
+      <div data-reveal>
+        <a class="group block h-full rounded-2xl border border-burgundy/10 bg-ivory p-6 hover:border-burgundy/25 hover:shadow-lg transition-all duration-300" href="#contact">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-xs font-semibold tracking-[0.12em] uppercase text-imagic-yellow">Marketing</span>
+            <span class="text-xs text-charcoal/40">5 min read</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-burgundy leading-snug group-hover:text-burgundy-light transition-colors">Treating SEO as a product, not a channel</h3>
+          <p class="mt-3 text-sm text-charcoal/60 leading-relaxed">When search becomes a core product surface, growth compounds instead of spiking and fading.</p>
+          <div class="mt-5 flex items-center gap-1.5 text-sm font-semibold text-burgundy">Read article
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </div>
+        </a>
+      </div>
+      <div data-reveal>
+        <a class="group block h-full rounded-2xl border border-burgundy/10 bg-ivory p-6 hover:border-burgundy/25 hover:shadow-lg transition-all duration-300" href="#contact">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-xs font-semibold tracking-[0.12em] uppercase text-imagic-yellow">Digital Transformation</span>
+            <span class="text-xs text-charcoal/40">7 min read</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-burgundy leading-snug group-hover:text-burgundy-light transition-colors">Security by design: the cheapest fix is early</h3>
+          <p class="mt-3 text-sm text-charcoal/60 leading-relaxed">Why baking security into the architecture costs a fraction of fixing it after a breach.</p>
+          <div class="mt-5 flex items-center gap-1.5 text-sm font-semibold text-burgundy">Read article
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </div>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==================== FINAL CTA ==================== -->
-<section class="section cta-final">
-  <div class="cta-glow"></div>
-  <div class="container-xl-custom position-relative">
-    <span class="eyebrow reveal-up" data-reveal style="justify-content:center;color:var(--imagic-yellow)">Let's Begin</span>
-    <h2 class="reveal-up" data-reveal>Have an idea?<br><span class="line-2">Let's make it real.</span></h2>
-    <p class="reveal-up" data-reveal>Tell us what you're building. We'll bring the technology, design and strategy to make it happen.</p>
-    <div class="hero-actions reveal-up" data-reveal>
-      <a href="#contact" class="btn-imagic btn-accent-imagic">Start a Project <span class="arrow">&rarr;</span></a>
-      <a href="#contact" class="btn-imagic btn-outline-imagic">Talk to Our Team <span class="arrow">&rarr;</span></a>
+<section class="py-24 lg:py-36 bg-burgundy text-ivory relative overflow-hidden">
+  <div class="absolute top-1/2 -translate-y-1/2 -right-32 w-[500px] h-[500px] rounded-full bg-imagic-yellow/10 blur-[140px] pointer-events-none"></div>
+  <div class="mx-auto max-w-1440 px-5 sm:px-8 text-center relative">
+    <div data-reveal>
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-yellow mb-6">Let's Begin</p>
+      <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-7xl leading-[1.05] tracking-tight text-balance">Have an idea?<br><span class="text-ivory/60">Let's make it real.</span></h2>
+    </div>
+    <div data-reveal>
+      <p class="mt-7 text-ivory/70 text-lg leading-relaxed max-w-xl mx-auto">Tell us what you're building. We'll bring the technology, design and strategy to make it happen.</p>
+    </div>
+    <div data-reveal>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a class="group inline-flex items-center gap-2 bg-imagic-yellow text-charcoal px-8 py-4 rounded-full font-semibold hover:bg-imagic-gold transition-colors duration-300" href="#contact">
+          Start a Project
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+        <a class="group inline-flex items-center gap-2 border border-ivory/30 text-ivory px-8 py-4 rounded-full font-semibold hover:bg-ivory hover:text-burgundy transition-all duration-300" href="#contact">
+          Talk to Our Team
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
+</main>
+
 <!-- ==================== FOOTER ==================== -->
-<footer class="footer" id="contact">
-  <div class="container-xl-custom">
-    <div class="row gy-5">
-      <div class="col-lg-4">
-        <div class="footer-brand">
-          <img src="assets/images/logo-mark.svg" alt="IMAGIC logo" width="36" height="36">
-          <span>imagic</span>
-        </div>
-        <p class="footer-desc">Technology + Design + Digital Growth. We build software and brands that turn ideas into measurable impact.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 10v6M8 7.5v.01M12 16v-3.5c0-1.4 1-2.5 2.3-2.5S16 11.1 16 12.5V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
-          <a href="#" aria-label="Behance"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 7h6M3 7v10h5.5c1.9 0 3-1.1 3-2.7 0-1.4-.9-2.2-2-2.5 1-.4 1.6-1.2 1.6-2.3C11.1 8 10 7 8.2 7H3zm3 4.6h2c1 0 1.6.5 1.6 1.4 0 1-.7 1.5-1.7 1.5H6v-2.9zM13 12.6c0-2.8 1.8-4.6 4.3-4.6 2.6 0 4.2 1.9 4.2 4.6v.6h-6.4c.1 1.3 1 2 2.2 2 .9 0 1.5-.3 1.9-1h2.1c-.5 1.7-2 2.7-4 2.7-2.6 0-4.3-1.7-4.3-4.3zm2.2-1h4c-.1-1.2-.9-1.9-2-1.9-1 0-1.8.7-2 1.9zM14.5 6h4v1.2h-4z" fill="currentColor"/></svg></a>
+<footer id="contact" class="bg-charcoal text-ivory pt-20 pb-10">
+  <div class="mx-auto max-w-1440 px-5 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-ivory/10">
+      <div class="lg:col-span-5">
+        <a class="inline-flex items-center gap-2.5" aria-label="IMAGIC home" href="#home">
+          <img src="assets/images/logo-mark.svg" alt="IMAGIC" class="h-9 sm:h-11 w-9 sm:w-11 object-contain">
+          <span class="font-display font-extrabold text-xl sm:text-2xl text-ivory">imagic</span>
+        </a>
+        <p class="mt-6 text-ivory/60 text-sm leading-relaxed max-w-sm">Technology + Design + Digital Growth. We build software, products and brands that turn ideas into measurable impact.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full border border-ivory/15 text-ivory/70">Technology</span>
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full border border-ivory/15 text-ivory/70">Design</span>
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full border border-ivory/15 text-ivory/70">Growth</span>
+          <span class="text-xs font-medium px-3 py-1.5 rounded-full border border-ivory/15 text-ivory/70">Security</span>
         </div>
       </div>
-
-      <div class="col-lg-2 col-6">
-        <h5>Services</h5>
-        <ul class="footer-links">
-          <li><a href="#services">Web &amp; Software Development</a></li>
-          <li><a href="#services">Product Development</a></li>
-          <li><a href="#services">UI/UX Design</a></li>
-          <li><a href="#services">Video Editing</a></li>
-          <li><a href="#services">SEO &amp; Digital Marketing</a></li>
-          <li><a href="#services">Brand Building</a></li>
-          <li><a href="#services">Data Security</a></li>
+      <div class="lg:col-span-3">
+        <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-yellow mb-5">Services</p>
+        <ul class="space-y-2.5">
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="#services">Web &amp; Software Development</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="#services">Product Development</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="#services">UI/UX Design</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="#services">Video Editing</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="#services">SEO &amp; Digital Marketing</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="#services">Brand Building</a></li>
+          <li><a class="text-sm text-ivory/60 hover:text-ivory transition-colors" href="#services">Data Security</a></li>
         </ul>
       </div>
-
-      <div class="col-lg-2 col-6">
-        <h5>Company</h5>
-        <ul class="footer-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#insights">Insights</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+      <div class="lg:col-span-4">
+        <p class="text-xs font-semibold tracking-[0.2em] uppercase text-imagic-yellow mb-5">Get in touch</p>
+        <ul class="space-y-3 text-sm text-ivory/70">
+          <li class="flex items-center gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            <a href="mailto:hello@imagic.studio" class="hover:text-ivory transition-colors">hello@imagic.studio</a>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href="tel:+14155550142" class="hover:text-ivory transition-colors">+1 (415) 555-0142</a>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-imagic-yellow shrink-0 mt-0.5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>88 Mission Street, Suite 1200<br>San Francisco, CA 94105</span>
+          </li>
         </ul>
-      </div>
-
-      <div class="col-lg-4">
-        <h5>Get in Touch</h5>
-        <div class="footer-contact">
-          <a href="mailto:hello@imagic.studio">hello@imagic.studio</a>
-          <a href="tel:+14085550142">+1 (408) 555-0142</a>
-          <span>88 Mission Street, Suite 300, San Francisco, CA 94105</span>
-        </div>
-        <a href="mailto:hello@imagic.studio" class="btn-imagic btn-accent-imagic">Start a Project <span class="arrow">&rarr;</span></a>
+        <a class="mt-6 inline-flex items-center gap-1.5 bg-imagic-yellow text-charcoal px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-imagic-gold transition-colors" href="mailto:hello@imagic.studio">
+          Start a Project
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
       </div>
     </div>
-
-    <div class="footer-bottom">
-      <span>&copy; <span id="year"></span> IMAGIC. All rights reserved.</span>
-      <div class="d-flex gap-4">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Institute of Motion Art, Graphical Image &amp; Cinematography</a>
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/40">
+      <p>&copy; <span id="year"></span> IMAGIC. All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <a class="hover:text-ivory/70 transition-colors" href="#about">Privacy</a>
+        <a class="hover:text-ivory/70 transition-colors" href="#about">Terms</a>
+        <span>Institute of Motion Art Graphical Image &amp; Cinematography</span>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- Scripts -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/gsap/gsap.min.js"></script>
 <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
 <script src="js/main.js"></script>
